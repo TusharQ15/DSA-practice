@@ -1,27 +1,24 @@
 """
 Problem: Find Maximum Element in Array
 Source: Common DSA Problem
+Difficulty: Easy
 
-Given an array of integers, find the maximum element.
-
-Approach:
-1. Initialize the first element as the maximum.
-2. Iterate through the array, updating the maximum when a larger element is found.
-3. Return the final maximum value.
-
-Time Complexity: O(n) - We need to check each element once
-Space Complexity: O(1) - Only constant extra space is used
+Approach: Iterate through the array while keeping track of the maximum element seen so far.
+Time Complexity: O(n)
+Space Complexity: O(1)
 """
 
-def find_max(arr):
+from typing import List, Optional
+
+def find_max(arr: List[int]) -> int:
     """
     Find the maximum element in a list of integers.
     
     Args:
-        arr (list): List of integers to find the maximum from
+        arr: List of integers to find the maximum from
         
     Returns:
-        int: The maximum element in the list
+        The maximum element in the list
         
     Raises:
         ValueError: If the input list is empty
@@ -35,76 +32,88 @@ def find_max(arr):
             max_num = num
     return max_num
 
-def find_max_builtin(arr):
+def find_max_builtin(arr: List[int]) -> int:
     """
     Find maximum using Python's built-in max() function.
-    This is for comparison and demonstration purposes.
     
-    Time Complexity: O(n) - Same as our implementation
-    Space Complexity: O(1)
+    Args:
+        arr: List of integers to find the maximum from
+        
+    Returns:
+        The maximum element in the list
+        
+    Raises:
+        ValueError: If the input list is empty
     """
     if not arr:
         raise ValueError("Input list cannot be empty")
     return max(arr)
 
-def linear_search(arr, target):
+def linear_search(arr: List[int], target: int) -> int:
     """
-    Search for a target element in the array.
+    Linear search to find a target in an array.
     
     Args:
-        arr (list): List of integers to search in
-        target (int): The element to search for
+        arr: List of integers to search in
+        target: The element to find
         
     Returns:
-        int: The target element if found, otherwise -1
+        Index of the target if found, -1 otherwise
     """
-    for num in arr:
+    for i, num in enumerate(arr):
         if num == target:
-            return num
+            return i
     return -1
 
 if __name__ == "__main__":
-    test_cases = [
-        ([1, 2, 3, 4, 5], 5),
-        ([5, 4, 3, 2, 1], 5),
-        ([1, 3, 2, 5, 4], 5),
-        ([42], 42),
-        ([-5, -1, -3, -2], -1),
-        ([10, 10, 10], 10)
+    # Test cases for find_max
+    test_arrays = [
+        [1, 2, 3, 4, 5],
+        [5, 4, 3, 2, 1],
+        [1],
+        [-1, -2, -3, -4, -5],
+        [10, 9, 11, 8, 12],
+        [5, 5, 5, 5, 5]
     ]
     
-    print("=== Testing Find Maximum ===")
-    for nums, expected in test_cases:
-        result = find_max(nums)
-        print(f"Array: {nums} -> Max: {result}")
-        assert result == expected, f"Expected {expected}, got {result}"
+    print("=== Testing Array Maximum ===\n")
     
-    # Test empty array case
+    # Test both implementations
+    for arr in test_arrays:
+        max1 = find_max(arr)
+        max2 = find_max_builtin(arr)
+        expected = max(arr)
+        assert max1 == expected, f"Failed for {arr}"
+        assert max2 == expected, f"Failed for {arr}"
+        print(f"Array: {arr}")
+        print(f"Maximum: {max1}")
+        print(" Test passed")
+        print("-" * 50)
+    
+    # Test linear search
+    search_tests = [
+        ([1, 2, 3, 4, 5], 3, 2),
+        ([1, 2, 3, 4, 5], 6, -1),
+        ([], 1, -1),
+        ([5], 5, 0)
+    ]
+    
+    print("\n=== Testing Linear Search ===\n")
+    for arr, target, expected in search_tests:
+        result = linear_search(arr, target)
+        assert result == expected, f"Failed for {arr}, target={target}"
+        print(f"Array: {arr}")
+        print(f"Target: {target}")
+        print(f"Found at index: {result}")
+        print(" Test passed")
+        print("-" * 50)
+    
+    # Test error handling
     try:
         find_max([])
-    except ValueError as e:
-        print("\nTest passed: Empty array raises ValueError")
-    
-    # Compare with built-in max
-    print("\n=== Comparison with Built-in max() ===")
-    for nums, _ in test_cases:
-        custom_max = find_max(nums)
-        builtin_max = find_max_builtin(nums)
-        print(f"Array: {nums} -> Custom: {custom_max}, Built-in: {builtin_max}")
-        assert custom_max == builtin_max, "Mismatch with built-in max()"
-    
-    # Test linear search with specific test cases
-    test_cases = [
-        ([10, 20, 30, 40, 50], 30),  # Element exists
-        ([10, 20, 30, 40, 50], 100), # Element doesn't exist
-        ([], 5),                     # Empty array
-        ([5], 5),                    # Single element array, target exists
-        ([5], 10)                    # Single element array, target doesn't exist
-    ]
-    
-    print("\nTesting Linear Search:")
-    print("=" * 30)
-    for arr, target in test_cases:
+        assert False, "Expected ValueError for empty list"
+    except ValueError:
+        print("\nTest passed: Correctly raised ValueError for empty list")
         print(f"Array: {arr}")
         print(f"Searching for: {target}")
         result = linear_search(arr, target)

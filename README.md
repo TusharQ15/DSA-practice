@@ -1,113 +1,117 @@
 # DSA Practice Repository
 
-📚 A systematic collection of DSA problems solved in Python, organized by topic and pattern for interview preparation.
+This is a personal DSA practice repo in Python, used to prepare for coding interviews and track progress over time.
+
+🔖 Topics: python, dsa, algorithms, data-structures, leetcode, coding-interview
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.8+
+- pip (Python package installer)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/TusharQ15/dsa-practice.git
+   cd dsa-practice
+   ```
+
+2. (Recommended) Create and activate a virtual environment:
+   ```bash
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+   
+   # macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## 🏗️ Repository Structure
 
 ```
 dsa-practice/
-├── arrays/               # Array manipulation problems
-├── strings/             # String manipulation problems
-├── linked_list/         # Linked list problems
-├── trees/               # Binary trees, BST, etc.
-├── graphs/              # Graph algorithms
-├── dp/                  # Dynamic programming
-├── recursion/           # Recursion and backtracking
-├── math/                # Math and number theory
-├── search_sort/         # Searching and sorting algorithms
-├── misc/                # Miscellaneous problems
-├── tests/               # Test cases
-├── .gitignore           # Git ignore file
-├── requirements.txt     # Python dependencies
-├── README.md            # This file
-├── PROGRESS.md          # Tracking solved problems
-└── NOTES.md             # Patterns and insights
+├── arrays/               # Array manipulation problems (7 problems)
+│   ├── average_of_array.py
+│   ├── max_in_array.py
+│   ├── min_in_array.py
+│   ├── move_zeros.py
+│   ├── reverse_array.py
+│   ├── sum_of_array.py
+│   └── two_sum.py
+├── strings/              # String manipulation problems (2 problems)
+│   ├── is_palindrome.py
+│   └── reverse_string.py
+└── tests/               # Test cases
 ```
+
+> **Note:** Some topic folders are planned and will be filled over the next 1-2 months.
 
 ## 📝 Problem File Format
 
-Each solution file follows this structure:
+Each solution follows this consistent structure:
 
 ```python
 """
-Problem: Problem Name
-Source: URL to problem
-Difficulty: Easy/Medium/Hard
+Problem: Two Sum
+Source: https://leetcode.com/problems/two-sum/
+Difficulty: Easy
 
-Approach: 1-2 line explanation of the approach
-
-Time Complexity: O(...)
-Space Complexity: O(...)
+Approach: Use a hash map to store seen numbers and their indices.
+Time Complexity: O(n)
+Space Complexity: O(n)
 """
 
-def solution(...):
-    # Implementation
-    pass
+from typing import List
 
-# Test cases
+def two_sum(nums: List[int], target: int) -> List[int]:
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    return []
+
 if __name__ == "__main__":
-    # Basic tests
-    assert solution(...) == expected_output
+    assert two_sum([2, 7, 11, 15], 9) == [0, 1]
+    assert two_sum([3, 2, 4], 6) == [1, 2]
+    assert two_sum([3, 3], 6) == [0, 1]
+    print("All test cases passed!")
 ```
 
-## 🚀 Getting Started
+## 🧪 Testing
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/dsa-practice.git
-   cd dsa-practice
-   ```
+Tests are written using pytest. Each problem has a corresponding test file in the `tests/` directory.
 
-2. **Set up the environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+Run all tests:
+```bash
+pytest tests/
+```
 
-3. **Run tests**
-   ```bash
-   pytest tests/
-   ```
+Run tests for a specific problem:
+```bash
+pytest tests/test_two_sum.py
+```
 
-## 📚 Topics Covered
+## 📊 Progress
 
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
 | **Arrays** | 7 | Two Pointers, Sliding Window |
 | **Strings** | 2 | Hashing, Sliding Window |
-| **Linked Lists** | 0 | Fast & Slow Pointers |
-| **Trees** | 0 | DFS, BFS, Traversals |
-| **Graphs** | 0 | BFS, DFS, Dijkstra's |
-| **DP** | 0 | Memoization, Tabulation |
-| **Search/Sort** | 0 | Binary Search, Quick/Merge Sort |
 
-## 📈 Progress Tracking
+I use these resources for practice and learning:
+- [LeetCode](https://leetcode.com/) - For problem sets and practice
+- [NeetCode 150](https://neetcode.io/) - For structured problem selection
+- [Grokking the Coding Interview](https://www.educative.io/courses/grokking-the-coding-interview) - For learning patterns
 
-- **Total Problems Solved**: 9
-- **Weekly Goal**: 5-7 problems
-- **Current Focus**: Arrays & Strings
+## 📝 Notes
 
-See [PROGRESS.md](PROGRESS.md) for detailed progress and [NOTES.md](NOTES.md) for patterns and insights.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Submit a pull request
-
-## 📝 Commit Message Style
-
-- `feat(topic): add new solution` - New problem solution
-- `fix(topic): correct solution` - Fix existing solution
-- `refactor(topic): improve code` - Code improvements
-- `docs: update readme` - Documentation updates
-
-## 🔗 Resources
-
-- [LeetCode](https://leetcode.com/)
-- [NeetCode](https://neetcode.io/)
-- [Grokking the Coding Interview](https://www.educative.io/courses/grokking-the-coding-interview)
-- [AlgoExpert](https://www.algoexpert.io/)
+Personal notes and insights are maintained in [NOTES.md](NOTES.md).

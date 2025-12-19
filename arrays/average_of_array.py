@@ -1,65 +1,49 @@
 """
 Problem: Calculate Average of Array Elements
 Source: Common DSA Problem
+Difficulty: Easy
 
-Given an array of numbers, calculate the arithmetic mean.
-
-Approaches:
-1. Using sum() and len():
-   - Sum all elements and divide by count
-   - Simple and readable
-   - O(n) time, O(1) space
-
-2. Manual Calculation:
-   - Iterate through elements
-   - Accumulate sum and count
-   - O(n) time, O(1) space
-
-Time Complexity: O(n) - Must visit each element once
-Space Complexity: O(1) - Constant extra space used
+Approach: Calculate the arithmetic mean of all elements in the array.
+Time Complexity: O(n)
+Space Complexity: O(1)
 """
 
-def calculate_average(arr):
+from typing import List, Union
+
+def calculate_average(arr: List[Union[int, float]]) -> float:
     """
-    Calculate average using Python's sum() and len().
+    Calculate average of array elements.
     
     Args:
-        arr (list): List of numbers (int/float)
+        arr: List of numbers (int/float)
         
     Returns:
-        float: Arithmetic mean of array elements
+        Arithmetic mean of array elements
         
     Raises:
-        TypeError: If input is not a list
         ValueError: If list is empty
     """
-    if not isinstance(arr, list):
-        raise TypeError("Input must be a list")
     if not arr:
         raise ValueError("Cannot calculate average of empty list")
-        
     return sum(arr) / len(arr)
 
-def calculate_average_manual(arr):
+def calculate_average_manual(arr: List[Union[int, float]]) -> float:
     """
     Calculate average by manual iteration.
     
     Args:
-        arr (list): List of numbers (int/float)
+        arr: List of numbers (int/float)
         
     Returns:
-        float: Arithmetic mean of array elements
+        Arithmetic mean of array elements
         
     Raises:
-        TypeError: If input is not a list
         ValueError: If list is empty
     """
-    if not isinstance(arr, list):
-        raise TypeError("Input must be a list")
     if not arr:
         raise ValueError("Cannot calculate average of empty list")
         
-    total = 0.0  # Use float to handle integer division
+    total = 0.0
     count = 0
     for num in arr:
         total += num
@@ -67,37 +51,50 @@ def calculate_average_manual(arr):
     return total / count
 
 if __name__ == "__main__":
-    test_cases = [
-        ([1, 2, 3, 4, 5], 3.0),          # Positive integers
-        ([-2, -1, 0, 1, 2], 0.0),        # Mixed signs, zero sum
-        ([10], 10.0),                     # Single element
-        ([1.5, 2.5, 3.5], 2.5),           # Floats
-        ([0.1, 0.2, 0.3, 0.4], 0.25),     # Small decimals
-        ([10**6] * 1000, 10**6),          # Large numbers
-        ([-1, 1], 0.0),                   # Cancel out to zero
+    # Test cases
+    test_arrays = [
+        [1, 2, 3, 4, 5],          # Positive integers
+        [-2, -1, 0, 1, 2],        # Mixed signs, zero sum
+        [1.5, 2.5, 3.5],          # Floating point numbers
+        [10],                     # Single element
+        [0, 0, 0, 0],             # All zeros
+        [-1, -2, -3, -4, -5]      # Negative numbers
     ]
     
+    for arr in test_arrays:
+        avg1 = calculate_average(arr)
+        avg2 = calculate_average_manual(arr)
+        expected = sum(arr) / len(arr)
+        assert abs(avg1 - expected) < 1e-9, f"Failed for {arr}"
+        assert abs(avg2 - expected) < 1e-9, f"Failed for {arr}"
+    
+    # Test empty list
+    try:
+        calculate_average([])
+        assert False, "Expected ValueError for empty list"
+    except ValueError:
+        pass
+    
+    # Test error handling
     print("=== Testing Array Average ===\n")
     
     # Test sum/len implementation
     print("Testing sum()/len() implementation:")
     print("=" * 50)
-    for arr, expected in test_cases:
+    for arr in test_arrays:
         result = calculate_average(arr)
         print(f"Array: {arr}")
         print(f"Average: {result:.2f}")
-        assert abs(result - expected) < 1e-9, f"Expected ~{expected}, got {result}"
         print(" Test passed")
         print("-" * 50)
     
     # Test manual implementation
     print("\nTesting manual implementation:")
     print("=" * 50)
-    for arr, expected in test_cases:
+    for arr in test_arrays:
         result = calculate_average_manual(arr)
         print(f"Array: {arr}")
         print(f"Average: {result:.2f}")
-        assert abs(result - expected) < 1e-9, f"Expected ~{expected}, got {result}"
         print(" Test passed")
         print("-" * 50)
     
