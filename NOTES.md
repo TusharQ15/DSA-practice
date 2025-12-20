@@ -34,8 +34,21 @@
   - Median of Two Sorted Arrays
 - **Tip**: Always check edge cases (empty array, single element, etc.)
 
-### 5. Dynamic Programming
-- **When to use**: Problems with optimal substructure and overlapping subproblems
+### 5. Prefix/Suffix Products
+- **When to use**: When you need to calculate products of all elements except self in O(n) time
+- **Examples**:
+  - Product of Array Except Self
+- **Tip**: Calculate prefix products in one pass, then calculate suffix products in reverse and multiply with prefix
+
+### 6. Kadane's Algorithm
+- **When to use**: Finding maximum subarray sum in O(n) time
+- **Examples**:
+  - Maximum Subarray
+  - Best Time to Buy and Sell Stock
+- **Tip**: Keep track of current maximum and global maximum, reset current maximum if it becomes negative
+
+### 7. Dynamic Programming
+- **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:
   - Fibonacci
   - Longest Increasing Subsequence

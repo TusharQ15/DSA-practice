@@ -4,7 +4,7 @@
 
 | Topic | Problems | Completed | Completion % |
 |-------|----------|-----------|--------------|
-| **Arrays** | 30 | 7 | 23% |
+| **Arrays** | 30 | 9 | 30% |
 | **Strings** | 20 | 2 | 10% |
 | **Linked Lists** | 15 | 0 | 0% |
 | **Trees** | 25 | 0 | 0% |
@@ -18,7 +18,11 @@
 
 ### Week of December 16, 2025
 **Goal**: 5-7 problems
-**Completed**: 9 problems
+**Completed**: 11 problems
+
+#### December 20, 2025
+- [x] Product of Array Except Self (Prefix/Suffix Products) - Medium
+- [x] Maximum Subarray (Kadane's Algorithm) - Medium
 
 #### December 19, 2025
 - [x] Refactored Two Sum with comprehensive test cases (Hash Map) - Easy
@@ -26,7 +30,7 @@
   - Added test cases for edge cases
   - Improved error handling
 
-#### Arrays (7/7)
+#### Arrays (9/9)
 - [x] Two Sum (Hash Map) - Easy (Refactored)
 - [x] Maximum Subarray (Kadane's Algorithm) - Medium
 - [x] Move Zeros (Two Pointers) - Easy
@@ -34,6 +38,8 @@
 - [x] Container With Most Water (Two Pointers) - Medium
 - [x] 3Sum (Two Pointers) - Medium
 - [x] Best Time to Buy and Sell Stock (Greedy) - Easy
+- [x] Product of Array Except Self (Prefix/Suffix Products) - Medium
+- [x] Maximum Subarray (Kadane's Algorithm) - Medium
 
 #### Strings (2/2)
 - [x] Valid Parentheses (Stack) - Easy
@@ -45,7 +51,7 @@
 - [ ] Start with Linked Lists (3 problems)
 
 ## 🎯 Goals
-- [ ] Complete NeetCode 150 problems by March 2026 (Current: 9/150)
+- [ ] Complete NeetCode 150 problems by March 2026 (Current: 11/150)
 - [ ] Solve 5-7 problems per week consistently
 - [ ] Maintain 80%+ test coverage for all solutions
 - [ ] Write detailed explanations for each solution
