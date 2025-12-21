@@ -24,6 +24,10 @@ def three_sum(nums: List[int]) -> List[List[int]]:
     result = []
     
     for i in range(n - 2):
+        # Early termination if the smallest number is greater than 0
+        if nums[i] > 0:
+            break
+            
         # Skip duplicate values for i
         if i > 0 and nums[i] == nums[i - 1]:
             continue
