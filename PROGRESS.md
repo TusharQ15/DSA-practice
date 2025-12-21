@@ -4,7 +4,7 @@
 
 | Topic | Problems | Completed | Completion % |
 |-------|----------|-----------|--------------|
-| **Arrays** | 30 | 9 | 30% |
+| **Arrays** | 30 | 11 | 37% |
 | **Strings** | 20 | 2 | 10% |
 | **Linked Lists** | 15 | 0 | 0% |
 | **Trees** | 25 | 0 | 0% |
@@ -12,13 +12,17 @@
 | **Dynamic Programming** | 30 | 0 | 0% |
 | **Sorting & Searching** | 15 | 0 | 0% |
 | **Math** | 10 | 0 | 0% |
-| **Total** | **165** | **9** | **5%** |
+| **Total** | **165** | **11** | **7%** |
 
 ## 📅 Weekly Progress
 
 ### Week of December 16, 2025
 **Goal**: 5-7 problems
 **Completed**: 11 problems
+
+#### December 21, 2025
+- [x] Maximum Product Subarray (DP) - Medium
+- [x] Best Time to Buy and Sell Stock (Greedy) - Easy
 
 #### December 20, 2025
 - [x] Product of Array Except Self (Prefix/Suffix Products) - Medium

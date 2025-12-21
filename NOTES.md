@@ -47,7 +47,19 @@
   - Best Time to Buy and Sell Stock
 - **Tip**: Keep track of current maximum and global maximum, reset current maximum if it becomes negative
 
-### 7. Dynamic Programming
+### 7. Maximum Product Subarray (DP)
+- **When to use**: Finding contiguous subarray with maximum product, especially with negative numbers and zeros
+- **Examples**:
+  - Maximum Product Subarray
+- **Tip**: Track both max and min products at each step since a negative number can make a min product the max when multiplied by another negative
+
+### 8. Best Time to Buy and Sell Stock (Greedy)
+- **When to use**: Finding maximum profit from buying and selling a stock once
+- **Examples**:
+  - Best Time to Buy and Sell Stock
+- **Tip**: Track the minimum price seen so far and calculate potential profit at each step
+
+### 9. Dynamic Programming
 - **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:
   - Fibonacci
