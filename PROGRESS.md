@@ -21,6 +21,7 @@
 **Completed**: 11 problems
 
 #### December 21, 2025
+- [x] 3Sum (Two Pointers) - Medium
 - [x] Maximum Product Subarray (DP) - Medium
 - [x] Best Time to Buy and Sell Stock (Greedy) - Easy
 

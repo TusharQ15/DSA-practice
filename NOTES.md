@@ -47,7 +47,16 @@
   - Best Time to Buy and Sell Stock
 - **Tip**: Keep track of current maximum and global maximum, reset current maximum if it becomes negative
 
-### 7. Maximum Product Subarray (DP)
+### 7. 3Sum and k-Sum Problems
+- **When to use**: Finding unique triplets (or k elements) that sum to a target
+- **Key Insights**:
+  - Sort the array first to enable two-pointer technique
+  - Skip duplicates to avoid duplicate triplets
+  - For each element, use two pointers to find pairs that sum to the complement
+- **Time Complexity**: O(n²) for 3Sum, O(n^(k-1)) for k-Sum
+- **Example**: 3Sum, 4Sum, 3Sum Closest
+
+### 8. Maximum Product Subarray (DP)
 - **When to use**: Finding contiguous subarray with maximum product, especially with negative numbers and zeros
 - **Examples**:
   - Maximum Product Subarray

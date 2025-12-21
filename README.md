@@ -1,8 +1,8 @@
 # DSA Practice Repository
 
-This is a personal DSA practice repo in Python, used to prepare for coding interviews and track progress over time.
+NeetCode/Blind 75 style DSA practice in Python with tests.
 
-🔖 Topics: python, dsa, algorithms, data-structures, leetcode, coding-interview
+🔖 Topics: python, dsa, algorithms, data-structures, leetcode, coding-interview, neetcode, blind-75
 
 ## 🚀 Getting Started
 
@@ -37,21 +37,13 @@ This is a personal DSA practice repo in Python, used to prepare for coding inter
 
 ```
 dsa-practice/
-├── arrays/               # Array manipulation problems (7 problems)
-│   ├── average_of_array.py
-│   ├── max_in_array.py
-│   ├── min_in_array.py
-│   ├── move_zeros.py
-│   ├── reverse_array.py
-│   ├── sum_of_array.py
-│   └── two_sum.py
-├── strings/              # String manipulation problems (2 problems)
-│   ├── is_palindrome.py
-│   └── reverse_string.py
-└── tests/               # Test cases
+├── arrays/               # Array manipulation problems
+│   ├── basics/           # Basic array operations
+│   └── two_sum.py        # Interview-level problems
+└── tests/                # Test cases
 ```
 
-> **Note:** Some topic folders are planned and will be filled over the next 1-2 months.
+> **Note:** More topics and problems will be added over time.
 
 ## 📝 Problem File Format
 
@@ -71,20 +63,10 @@ Space Complexity: O(n)
 from typing import List
 
 def two_sum(nums: List[int], target: int) -> List[int]:
-    seen = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in seen:
-            return [seen[complement], i]
-        seen[num] = i
-    return []
-
-if __name__ == "__main__":
-    assert two_sum([2, 7, 11, 15], 9) == [0, 1]
-    assert two_sum([3, 2, 4], 6) == [1, 2]
-    assert two_sum([3, 3], 6) == [0, 1]
-    print("All test cases passed!")
+    pass
 ```
+
+For a complete example, see [arrays/two_sum.py](arrays/two_sum.py).
 
 ## 🧪 Testing
 
