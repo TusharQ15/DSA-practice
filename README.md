@@ -33,7 +33,7 @@ NeetCode/Blind 75 style DSA practice in Python with tests.
    pip install -r requirements.txt
    ```
 
-## 🏗️ Repository Structure
+## Repository Structure
 
 ```
 dsa-practice/
@@ -43,9 +43,14 @@ dsa-practice/
 └── tests/                # Test cases
 ```
 
+## Current Focus
+
+**30-Day DSA Challenge (Dec 2025 – Jan 2026)**  
+Focused on mastering core data structures and algorithms through structured practice. Following a NeetCode/Blind 75 style curriculum with an emphasis on arrays, strings, binary search, and pattern-based problem-solving.
+
 > **Note:** More topics and problems will be added over time.
 
-## 📝 Problem File Format
+## Problem File Format
 
 Each solution follows this consistent structure:
 

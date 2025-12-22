@@ -44,16 +44,44 @@
   - Added test cases for edge cases
   - Improved error handling
 
-#### Arrays (9/9)
-- [x] Two Sum (Hash Map) - Easy (Refactored)
-- [x] Maximum Subarray (Kadane's Algorithm) - Medium
-- [x] Move Zeros (Two Pointers) - Easy
-- [x] Find Minimum in Rotated Sorted Array (Binary Search) - Medium
+#### Arrays (13/30)
+
+**Core Problems (9/30)**
+- [x] Two Sum (Hash Map) - Easy
+- [x] Best Time to Buy and Sell Stock (Greedy) - Easy
 - [x] Container With Most Water (Two Pointers) - Medium
 - [x] 3Sum (Two Pointers) - Medium
-- [x] Best Time to Buy and Sell Stock (Greedy) - Easy
-- [x] Product of Array Except Self (Prefix/Suffix Products) - Medium
 - [x] Maximum Subarray (Kadane's Algorithm) - Medium
+- [x] Product of Array Except Self (Prefix/Suffix Products) - Medium
+- [x] Find Minimum in Rotated Sorted Array (Binary Search) - Medium
+- [x] Search in Rotated Sorted Array (Binary Search) - Medium
+- [x] Move Zeros (Two Pointers) - Easy
+
+**Basic Warm-ups (4/30)**
+- [x] Sum of Array (Iterative) - Easy
+- [x] Find Minimum in Array - Easy
+- [x] Find Maximum in Array - Easy
+- [x] Reverse Array - Easy
+- [x] Average of Array - Easy
+
+**Remaining Problems (17/30)**
+- [ ] 4Sum (Two Pointers) - Medium
+- [ ] Remove Duplicates from Sorted Array (Two Pointers) - Easy
+- [ ] Remove Element (Two Pointers) - Easy
+- [ ] Search in Rotated Sorted Array II (Binary Search) - Medium
+- [ ] Find Peak Element (Binary Search) - Medium
+- [ ] Search a 2D Matrix (Binary Search) - Medium
+- [ ] Kth Largest Element in an Array (Quickselect/Heap) - Medium
+- [ ] Find the Duplicate Number (Floyd's Tortoise and Hare) - Medium
+- [ ] Longest Consecutive Sequence (Hash Set) - Medium
+- [ ] Trapping Rain Water (Two Pointers/Dynamic Programming) - Hard
+- [ ] Rotate Array (Array Manipulation) - Medium
+- [ ] Merge Intervals (Sorting) - Medium
+- [ ] Insert Interval (Array) - Medium
+- [ ] Non-overlapping Intervals (Greedy) - Medium
+- [ ] Meeting Rooms (Sorting) - Easy
+- [ ] Meeting Rooms II (Heap) - Medium
+- [ ] Merge Sorted Array (Two Pointers) - Easy
 
 #### Strings (2/2)
 - [x] Valid Parentheses (Stack) - Easy
