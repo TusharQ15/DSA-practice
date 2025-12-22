@@ -38,15 +38,20 @@ NeetCode/Blind 75 style DSA practice in Python with tests.
 ```
 dsa-practice/
 ├── arrays/               # Array manipulation problems
-│   ├── basics/           # Basic array operations
-│   └── two_sum.py        # Interview-level problems
-└── tests/                # Test cases
+│   ├── basics/           # Warm-up problems (fundamental operations, not counted in progress)
+│   └── *.py              # Interview-level array problems (counted in progress)
+├── strings/              # String manipulation problems
+└── tests/                # Test cases for all problems
 ```
+
+> **Note:** Problems in `arrays/basics/` are warm-up exercises and are not counted in the progress tracking. Only problems in the root of `arrays/` are considered interview-level and contribute to the progress metrics.
 
 ## Current Focus
 
 **30-Day DSA Challenge (Dec 2025 – Jan 2026)**  
 Focused on mastering core data structures and algorithms through structured practice. Following a NeetCode/Blind 75 style curriculum with an emphasis on arrays, strings, binary search, and pattern-based problem-solving.
+
+See [PROGRESS.md](PROGRESS.md) for detailed progress tracking and problem solutions.
 
 > **Note:** More topics and problems will be added over time.
 
@@ -91,8 +96,8 @@ pytest tests/test_two_sum.py
 
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
-| **Arrays** | 7 | Two Pointers, Sliding Window |
-| **Strings** | 2 | Hashing, Sliding Window |
+| **Arrays** | 9 | Two Pointers, Sliding Window, Binary Search |
+| **Strings** | 2 | Two Pointers, Hashing |
 
 I use these resources for practice and learning:
 - [LeetCode](https://leetcode.com/) - For problem sets and practice
