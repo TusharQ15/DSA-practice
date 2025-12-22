@@ -71,19 +71,19 @@
 - **Time Complexity**: O(n²) for 3Sum, O(n^(k-1)) for k-Sum
 - **Example**: 3Sum, 4Sum, 3Sum Closest
 
-### 8. Maximum Product Subarray (DP)
+### 9. Maximum Product Subarray (DP)
 - **When to use**: Finding contiguous subarray with maximum product, especially with negative numbers and zeros
 - **Examples**:
   - Maximum Product Subarray
 - **Tip**: Track both max and min products at each step since a negative number can make a min product the max when multiplied by another negative
 
-### 8. Best Time to Buy and Sell Stock (Greedy)
+### 10. Best Time to Buy and Sell Stock (Greedy)
 - **When to use**: Finding maximum profit from buying and selling a stock once
 - **Examples**:
   - Best Time to Buy and Sell Stock
 - **Tip**: Track the minimum price seen so far and calculate potential profit at each step
 
-### 9. Dynamic Programming
+### 11. Dynamic Programming
 - **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:
   - Fibonacci
