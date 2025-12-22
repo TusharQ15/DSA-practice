@@ -4,7 +4,7 @@
 
 | Topic | Problems | Completed | Completion % |
 |-------|----------|-----------|--------------|
-| **Arrays** | 30 | 11 | 37% |
+| **Arrays** | 30 | 13 | 43% |
 | **Strings** | 20 | 2 | 10% |
 | **Linked Lists** | 15 | 0 | 0% |
 | **Trees** | 25 | 0 | 0% |
@@ -12,20 +12,29 @@
 | **Dynamic Programming** | 30 | 0 | 0% |
 | **Sorting & Searching** | 15 | 0 | 0% |
 | **Math** | 10 | 0 | 0% |
-| **Total** | **165** | **11** | **7%** |
+| **Total** | **165** | **13** | **8%** |
 
 ## 📅 Weekly Progress
 
 ### Week of December 16, 2025
+
 **Goal**: 5-7 problems
-**Completed**: 11 problems
+
+**Completed**: 13 problems
+
+#### December 22, 2025
+
+- [x] Find Minimum in Rotated Sorted Array (Binary Search) - Medium
+- [x] Search in Rotated Sorted Array (Binary Search) - Medium
 
 #### December 21, 2025
+
 - [x] 3Sum (Two Pointers) - Medium
 - [x] Maximum Product Subarray (DP) - Medium
 - [x] Best Time to Buy and Sell Stock (Greedy) - Easy
 
 #### December 20, 2025
+
 - [x] Product of Array Except Self (Prefix/Suffix Products) - Medium
 - [x] Maximum Subarray (Kadane's Algorithm) - Medium
 

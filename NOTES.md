@@ -47,7 +47,22 @@
   - Best Time to Buy and Sell Stock
 - **Tip**: Keep track of current maximum and global maximum, reset current maximum if it becomes negative
 
-### 7. 3Sum and k-Sum Problems
+### 7. Rotated Array Patterns
+- **When to use**: When dealing with sorted arrays that have been rotated
+- **Key Insights**:
+  - At least one half of the array (left or right of mid) will always be sorted
+  - The minimum element is at the pivot point where rotation occurs
+  - For search, first determine which half is sorted, then check if target is in that range
+- **Examples**:
+  - Find Minimum in Rotated Sorted Array
+  - Search in Rotated Sorted Array
+- **Complexity**: O(log n) time, O(1) space
+- **Edge Cases**:
+  - Array not rotated (fully sorted)
+  - Single element array
+  - Array with duplicate elements (requires additional handling)
+
+### 8. 3Sum and k-Sum Problems
 - **When to use**: Finding unique triplets (or k elements) that sum to a target
 - **Key Insights**:
   - Sort the array first to enable two-pointer technique
