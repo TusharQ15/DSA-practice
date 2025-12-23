@@ -16,23 +16,34 @@ from typing import List
 
 def three_sum(nums: List[int]) -> List[List[int]]:
     """
-    Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+    Given an integer array nums, return all unique triplets [nums[i], nums[j], nums[k]]
     such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+    
+    Args:
+        nums: List of integers to search for triplets
+        
+    Returns:
+        List of unique triplets that sum to zero, where each triplet is sorted in
+        ascending order.
+        
+    Example:
+        >>> three_sum([-1, 0, 1, 2, -1, -4])
+        [[-1, -1, 2], [-1, 0, 1]]
     """
     nums.sort()
-    n = len(nums)
+    nums_length = len(nums)
     result = []
     
-    for i in range(n - 2):
+    for i in range(nums_length - 2):
         # Early termination if the smallest number is greater than 0
         if nums[i] > 0:
             break
             
-        # Skip duplicate values for i
+        # Skip duplicate values for i (after first element)
         if i > 0 and nums[i] == nums[i - 1]:
             continue
             
-        left, right = i + 1, n - 1
+        left, right = i + 1, nums_length - 1
         target = -nums[i]
         
         while left < right:
@@ -64,42 +75,52 @@ if __name__ == "__main__":
     import unittest
 
     class TestThreeSum(unittest.TestCase):
-        def test_three_sum(self):
-            # Test case 1: Example from LeetCode
+        def test_three_sum_leetcode_example(self):
+            """Test the example from LeetCode problem description."""
             self.assertEqual(
                 three_sum([-1, 0, 1, 2, -1, -4]),
                 [[-1, -1, 2], [-1, 0, 1]]
             )
-            
-            # Test case 2: All zeros
+        
+        def test_all_zeros(self):
+            """Test with multiple zeros."""
             self.assertEqual(
                 three_sum([0, 0, 0, 0]),
                 [[0, 0, 0]]
             )
-            
-            # Test case 3: No valid triplets
-            self.assertEqual(
-                three_sum([-2, 0, 1]),
-                []
-            )
-            
-            # Test case 4: Single triplet with duplicates
+        
+        def test_no_valid_triplets(self):
+            """Test when no valid triplets exist."""
+            self.assertEqual(three_sum([-2, 0, 1]), [])
+        
+        def test_duplicate_elements(self):
+            """Test with duplicate elements in the input."""
             self.assertEqual(
                 three_sum([-1, 0, -1, 0, 1, 1]),
                 [[-1, 0, 1]]
             )
-            
-            # Test case 5: Empty input
-            self.assertEqual(
-                three_sum([]),
-                []
-            )
-            
-            # Test case 6: All positive numbers
-            self.assertEqual(
-                three_sum([1, 2, 3, 4]),
-                []
-            )
+        
+        def test_all_negative_numbers(self):
+            """Test with all negative numbers that can form valid triplets."""
+            result = three_sum([-1, -2, -3, 4, 5, 6])
+            # Check that all expected triplets are in the result
+            self.assertEqual(len(result), 2)
+            self.assertIn([-3, -2, 5], result)
+            self.assertIn([-3, -1, 4], result)
+        
+        def test_minimum_length(self):
+            """Test with exactly 3 elements (minimum input size)."""
+            self.assertEqual(three_sum([-1, 0, 1]), [[-1, 0, 1]])
+            self.assertEqual(three_sum([0, 0, 0]), [[0, 0, 0]])
+        
+        def test_short_input(self):
+            """Test with input length less than 3."""
+            self.assertEqual(three_sum([1, 2]), [])
+            self.assertEqual(three_sum([]), [])
+        
+        def test_all_positive_numbers(self):
+            """Test with all positive numbers (no valid triplet)."""
+            self.assertEqual(three_sum([1, 2, 3, 4]), [])
     
     unittest.main(argv=[''], exit=False)
     print("All test cases passed!")

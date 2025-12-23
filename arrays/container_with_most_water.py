@@ -13,17 +13,27 @@ Time Complexity: O(n) - Single pass with two pointers
 Space Complexity: O(1) - Constant space is used
 """
 from typing import List
+import unittest
 
 def max_area(height: List[int]) -> int:
     """
     Given n non-negative integers representing an elevation map where the width of each bar is 1,
     compute how much water a container can store.
+    
+    The solution uses a two-pointer approach where we start with the widest possible container
+    and move the pointer pointing to the shorter line inward, as the area is limited by the
+    shorter line. This approach ensures we find the maximum area in O(n) time.
 
     Args:
-        height: List of non-negative integers representing the height of each bar
+        height: List of non-negative integers where each integer represents the height of a bar
+               at that position.
 
     Returns:
-        int: Maximum area of water that can be contained
+        int: Maximum area of water that can be contained.
+        
+    Example:
+        >>> max_area([1,8,6,2,5,4,8,3,7])
+        49
     """
     max_area = 0
     left, right = 0, len(height) - 1
@@ -43,23 +53,47 @@ def max_area(height: List[int]) -> int:
 
 
 # Test cases
+class TestMaxArea(unittest.TestCase):
+    def test_leetcode_example(self):
+        """Test the example from LeetCode problem description."""
+        self.assertEqual(max_area([1,8,6,2,5,4,8,3,7]), 49)
+    
+    def test_two_elements(self):
+        """Test with minimum input size (2 elements)."""
+        self.assertEqual(max_area([1, 1]), 1)
+    
+    def test_single_bar(self):
+        """Test with single bar (should return 0)."""
+        self.assertEqual(max_area([5]), 0)
+    
+    def test_all_same_height(self):
+        """Test with all bars of same height."""
+        self.assertEqual(max_area([5, 5, 5, 5, 5]), 20)
+    
+    def test_increasing_heights(self):
+        """Test with strictly increasing heights."""
+        self.assertEqual(max_area([1, 2, 3, 4, 5]), 6)
+    
+    def test_decreasing_heights(self):
+        """Test with strictly decreasing heights."""
+        self.assertEqual(max_area([5, 4, 3, 2, 1]), 6)
+    
+    def test_alternating_heights(self):
+        """Test with alternating high and low heights."""
+        self.assertEqual(max_area([1, 8, 1, 8, 1, 8, 1, 8, 1]), 8 * 6)
+    
+    def test_large_input(self):
+        """Test with large input to check performance."""
+        large_input = [1] * 10**5
+        large_input[0] = 10**4
+        large_input[-1] = 10**4
+        self.assertEqual(max_area(large_input), 10**4 * (10**5 - 1))
+    
+    def test_tall_bars_far_apart(self):
+        """Test with two tall bars far apart."""
+        self.assertEqual(max_area([2, 3, 4, 5, 18, 17, 6]), 17)
+
+
 if __name__ == "__main__":
-    # Test case 1: Example from LeetCode
-    assert max_area([1,8,6,2,5,4,8,3,7]) == 49
-    
-    # Test case 2: Only two elements
-    assert max_area([1, 1]) == 1
-    
-    # Test case 3: All elements same height
-    assert max_area([5, 5, 5, 5, 5]) == 20
-    
-    # Test case 4: Increasing heights
-    assert max_area([1, 2, 3, 4, 5]) == 6
-    
-    # Test case 5: Decreasing heights
-    assert max_area([5, 4, 3, 2, 1]) == 6
-    
-    # Test case 6: Random heights
-    assert max_area([2, 3, 4, 5, 18, 17, 6]) == 17
-    
+    unittest.main(argv=[''], exit=False)
     print("All test cases passed!")
