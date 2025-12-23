@@ -4,9 +4,9 @@
 
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
-| **Arrays** | 9 | Two Pointers, Sliding Window, Binary Search |
+| **Arrays** | 10 | Two Pointers, Sliding Window, Binary Search |
 | **Strings** | 2 | Two Pointers, Hashing |
-| **Total** | **11** | |
+| **Total** | **13** | |
 
 > **Note:** Only implemented and tested problems are counted in the statistics above.
 
@@ -32,6 +32,16 @@
 #### December 22, 2025
 - [x] Find Minimum in Rotated Sorted Array (Binary Search) - Medium
 - [x] Search in Rotated Sorted Array (Binary Search) - Medium
+
+#### December 23, 2025
+- [x] 3Sum (Two Pointers) - Medium
+  - Implemented with O(n²) time complexity
+  - Added comprehensive test cases including edge cases
+  - Added detailed documentation and type hints
+- [x] Container With Most Water (Two Pointers) - Medium
+  - Enhanced with comprehensive test cases
+  - Improved code documentation and variable naming
+  - Added detailed inline comments explaining the approach
 
 ## Problem Solutions
 

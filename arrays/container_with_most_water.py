@@ -18,15 +18,20 @@ def max_area(height: List[int]) -> int:
     """
     Given n non-negative integers representing an elevation map where the width of each bar is 1,
     compute how much water a container can store.
+
+    Args:
+        height: List of non-negative integers representing the height of each bar
+
+    Returns:
+        int: Maximum area of water that can be contained
     """
     max_area = 0
     left, right = 0, len(height) - 1
     
     while left < right:
-        # Calculate the area between left and right pointers
-        h = min(height[left], height[right])
-        w = right - left
-        max_area = max(max_area, h * w)
+        width = right - left
+        min_height = min(height[left], height[right])
+        max_area = max(max_area, min_height * width)
         
         # Move the pointer pointing to the shorter line
         if height[left] < height[right]:

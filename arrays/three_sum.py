@@ -57,3 +57,49 @@ def three_sum(nums: List[int]) -> List[List[int]]:
                 right -= 1
                 
     return result
+
+
+# Test cases
+if __name__ == "__main__":
+    import unittest
+
+    class TestThreeSum(unittest.TestCase):
+        def test_three_sum(self):
+            # Test case 1: Example from LeetCode
+            self.assertEqual(
+                three_sum([-1, 0, 1, 2, -1, -4]),
+                [[-1, -1, 2], [-1, 0, 1]]
+            )
+            
+            # Test case 2: All zeros
+            self.assertEqual(
+                three_sum([0, 0, 0, 0]),
+                [[0, 0, 0]]
+            )
+            
+            # Test case 3: No valid triplets
+            self.assertEqual(
+                three_sum([-2, 0, 1]),
+                []
+            )
+            
+            # Test case 4: Single triplet with duplicates
+            self.assertEqual(
+                three_sum([-1, 0, -1, 0, 1, 1]),
+                [[-1, 0, 1]]
+            )
+            
+            # Test case 5: Empty input
+            self.assertEqual(
+                three_sum([]),
+                []
+            )
+            
+            # Test case 6: All positive numbers
+            self.assertEqual(
+                three_sum([1, 2, 3, 4]),
+                []
+            )
+    
+    unittest.main(argv=[''], exit=False)
+    print("All test cases passed!")
