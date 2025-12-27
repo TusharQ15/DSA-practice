@@ -1,37 +1,52 @@
 """
 Problem: Longest Consecutive Sequence
+
 Source: https://leetcode.com/problems/longest-consecutive-sequence/
+
 Difficulty: Medium
 
 Approach:
-The solution uses a hash set to store all numbers for O(1) lookups. We iterate through each number,
-and for each number that is the start of a sequence (i.e., num-1 is not in the set),
-we count how many consecutive numbers follow it. The maximum count is our answer.
+Use a hash set to achieve O(1) average lookups. For each number, treat it as the start of a sequence
+only if (num - 1) is not in the set. Then, count how long the sequence continues by checking
+(num + 1), (num + 2), etc. Track the maximum length encountered.
 
-Time Complexity: O(n)
-Space Complexity: O(n)
+Time Complexity: O(n) on average, where n is the number of elements.
+Space Complexity: O(n) for the hash set.
 """
-from typing import List
+
+from typing import List, Set
 
 
 def longest_consecutive(nums: List[int]) -> int:
-    num_set = set(nums)
-    max_length = 0
-    
+    """
+    Find the length of the longest sequence of consecutive integers in an unsorted array.
+
+    Args:
+        nums: A list of integers (can contain duplicates and be unsorted).
+
+    Returns:
+        The length of the longest consecutive elements sequence.
+    """
+    if not nums:
+        return 0
+
+    num_set: Set[int] = set(nums)
+    longest: int = 0
+
     for num in num_set:
-        # Check if it's the start of a sequence
+        # Only start counting from numbers that are the beginning of a sequence
         if num - 1 not in num_set:
-            current_num = num
-            current_streak = 1
-            
-            # Count consecutive numbers
-            while current_num + 1 in num_set:
-                current_num += 1
-                current_streak += 1
-                
-            max_length = max(max_length, current_streak)
-    
-    return max_length
+            current_length: int = 1
+            current_value: int = num
+
+            while current_value + 1 in num_set:
+                current_value += 1
+                current_length += 1
+
+            if current_length > longest:
+                longest = current_length
+
+    return longest
 
 
 import unittest
