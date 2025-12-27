@@ -43,6 +43,14 @@
   - Improved code documentation and variable naming
   - Added detailed inline comments explaining the approach
 
+#### December 27, 2024
+- [x] 3Sum (Two Pointers) - Medium
+  - Verified implementation with O(n²) time complexity
+  - Confirmed comprehensive test coverage
+- [x] Container With Most Water (Two Pointers) - Medium
+  - Verified O(n) solution
+  - Confirmed test coverage including edge cases
+
 ## Problem Solutions
 
 ### Arrays

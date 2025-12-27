@@ -48,6 +48,15 @@
 - **Tip**: Keep track of current maximum and global maximum, reset current maximum if it becomes negative
 
 ### 7. Rotated Array Patterns
+
+### 8. Two Pointers for Container Problems
+- **When to use**: Problems involving finding maximum area or volume between two points
+- **Examples**:
+  - Container With Most Water
+  - Trapping Rain Water
+- **Tip**: Start with widest possible container and move the pointer at the shorter line inward
+
+### 9. Rotated Array Patterns
 - **When to use**: When dealing with sorted arrays that have been rotated
 - **Key Insights**:
   - At least one half of the array (left or right of mid) will always be sorted
