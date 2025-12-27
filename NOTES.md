@@ -92,7 +92,22 @@
   - Best Time to Buy and Sell Stock
 - **Tip**: Track the minimum price seen so far and calculate potential profit at each step
 
-### 11. Dynamic Programming
+### 11. Trapping Rain Water (Two Pointers)
+- **When to use**: Calculating trapped water between bars of different heights
+- **Key Insights**:
+  - The amount of water that can be trapped at any bar is determined by the minimum of the maximum heights to its left and right, minus the height of the current bar
+  - Using two pointers (left and right) and tracking left_max and right_max allows O(n) time and O(1) space solution
+  - Move the pointer pointing to the shorter bar inward, as the water level is constrained by the shorter side
+
+### 12. Longest Consecutive Sequence (Hash Set)
+- **When to use**: Finding the length of the longest consecutive elements sequence
+- **Key Insights**:
+  - Convert the array to a set for O(1) lookups
+  - Only start counting sequences from numbers that are the start of a sequence (i.e., num-1 is not in the set)
+  - For each start of a sequence, count how many consecutive numbers follow it
+  - This approach ensures O(n) time complexity as each number is processed at most twice
+
+### 13. Dynamic Programming
 - **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:
   - Fibonacci

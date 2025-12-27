@@ -26,14 +26,13 @@ def two_sum(nums: List[int], target: int) -> List[int]:
         target: Target sum
         
     Returns:
-        List of two indices whose values sum to target
-        
-    Raises:
-        ValueError: If no solution is found
+        List of two indices whose values sum to target, or empty list if no solution
         
     Example:
         >>> two_sum([2, 7, 11, 15], 9)
         [0, 1]
+        >>> two_sum([1, 2, 3], 7)
+        []
     """
     seen = {}
     for i, num in enumerate(nums):
@@ -41,34 +40,36 @@ def two_sum(nums: List[int], target: int) -> List[int]:
         if complement in seen:
             return [seen[complement], i]
         seen[num] = i
-    raise ValueError("No two sum solution found")
+    return []
 
 
-def two_sum_sorted(nums: List[int], target: int) -> Optional[Tuple[int, int]]:
+def two_sum_sorted(nums: List[int], target: int) -> List[int]:
     """
     Find two numbers that add up to target in a sorted array.
     
     Args:
-        nums: Sorted list of integers in ascending order
+        nums: Sorted list of integers
         target: Target sum
         
     Returns:
-        Tuple of two values that sum to target, or None if not found
+        List of two values that sum to target, or empty list if no solution
         
     Example:
         >>> two_sum_sorted([2, 7, 11, 15], 9)
-        (2, 7)
+        [2, 7]
+        >>> two_sum_sorted([1, 2, 3], 7)
+        []
     """
     left, right = 0, len(nums) - 1
     while left < right:
         current_sum = nums[left] + nums[right]
         if current_sum == target:
-            return (nums[left], nums[right])
+            return [nums[left], nums[right]]
         elif current_sum < target:
             left += 1
         else:
             right -= 1
-    return None
+    return []
 
 
 class TestTwoSum(unittest.TestCase):
