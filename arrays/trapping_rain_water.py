@@ -6,13 +6,10 @@ Source: https://leetcode.com/problems/trapping-rain-water/
 Difficulty: Hard
 
 Approach:
-Use two pointers (left, right) to track the maximum height to the left and right of each position.
-At each step, move the pointer pointing to the smaller height, because the water trapped at that side
-is limited by the smaller boundary. Maintain left_max and right_max and accumulate trapped water as:
-- If height[left] < height[right]:
-    - If height[left] >= left_max: update left_max
-    - Else: add left_max - height[left] to the answer
-- Else do the symmetric logic on the right side.
+- Two pointers starting from both ends
+- Track max heights from both sides
+- Water at each point is determined by the smaller of the two max heights
+- Move the pointer with the smaller current height
 
 Time Complexity: O(n)
 Space Complexity: O(1)
@@ -20,42 +17,37 @@ Space Complexity: O(1)
 
 from typing import List
 
-
 def trap(height: List[int]) -> int:
     """
-    Compute how much water can be trapped after raining.
-
+    Calculate how much water can be trapped after raining.
+    
     Args:
-        height: A list of non-negative integers where each value represents the height of a bar.
-
+        height: List of non-negative integers representing elevation map
+    
     Returns:
-        The total amount of trapped rain water.
+        Total amount of water that can be trapped
     """
-    n = len(height)
-    if n < 3:
+    if not height or len(height) < 3:
         return 0
-
-    left: int = 0
-    right: int = n - 1
-    left_max: int = 0
-    right_max: int = 0
-    trapped: int = 0
-
-    while left <= right:
-        if height[left] <= height[right]:
+        
+    left, right = 0, len(height) - 1
+    left_max = right_max = water = 0
+    
+    while left < right:
+        if height[left] < height[right]:
             if height[left] >= left_max:
                 left_max = height[left]
             else:
-                trapped += left_max - height[left]
+                water += left_max - height[left]
             left += 1
         else:
             if height[right] >= right_max:
                 right_max = height[right]
             else:
-                trapped += right_max - height[right]
+                water += right_max - height[right]
             right -= 1
-
-    return trapped
+            
+    return water
 
 
 import unittest

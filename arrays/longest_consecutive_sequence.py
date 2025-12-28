@@ -6,46 +6,44 @@ Source: https://leetcode.com/problems/longest-consecutive-sequence/
 Difficulty: Medium
 
 Approach:
-Use a hash set to achieve O(1) average lookups. For each number, treat it as the start of a sequence
-only if (num - 1) is not in the set. Then, count how long the sequence continues by checking
-(num + 1), (num + 2), etc. Track the maximum length encountered.
+- Convert input to a set for O(1) lookups
+- Only start counting from the smallest number in a sequence (num-1 not in set)
+- Expand right to find the full sequence length
+- Track the maximum sequence length found
 
-Time Complexity: O(n) on average, where n is the number of elements.
-Space Complexity: O(n) for the hash set.
+Time Complexity: O(n)
+Space Complexity: O(n)
 """
 
 from typing import List, Set
 
-
 def longest_consecutive(nums: List[int]) -> int:
     """
-    Find the length of the longest sequence of consecutive integers in an unsorted array.
-
+    Find the length of the longest consecutive elements sequence.
+    
     Args:
-        nums: A list of integers (can contain duplicates and be unsorted).
-
+        nums: List of integers (can be unsorted and contain duplicates)
+    
     Returns:
-        The length of the longest consecutive elements sequence.
+        Length of the longest consecutive sequence
     """
-    if not nums:
-        return 0
-
-    num_set: Set[int] = set(nums)
-    longest: int = 0
-
+    num_set = set(nums)
+    longest = 0
+    
     for num in num_set:
-        # Only start counting from numbers that are the beginning of a sequence
+        # Only start counting from the smallest number in a sequence
         if num - 1 not in num_set:
-            current_length: int = 1
-            current_value: int = num
-
-            while current_value + 1 in num_set:
-                current_value += 1
+            current_num = num
+            current_length = 1
+            
+            # Expand to the right as far as possible
+            while current_num + 1 in num_set:
+                current_num += 1
                 current_length += 1
-
-            if current_length > longest:
-                longest = current_length
-
+                
+            # Update the longest sequence found
+            longest = max(longest, current_length)
+    
     return longest
 
 

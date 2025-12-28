@@ -1,58 +1,30 @@
 import pytest
-
 from arrays.longest_consecutive_sequence import longest_consecutive
 
+def test_longest_consecutive_basic_examples():
+    assert longest_consecutive([100, 4, 200, 1, 3, 2]) == 4  # 1,2,3,4
+    assert longest_consecutive([0,3,7,2,5,8,4,6,0,1]) == 9  # 0,1,2,3,4,5,6,7,8
 
-@pytest.mark.parametrize(
-    "nums, expected",
-    [
-        # Test case 1: Standard example
-        # Input: [100, 4, 200, 1, 3, 2]
-        # Sorted: [1, 2, 3, 4, 100, 200]
-        # Longest sequence: [1, 2, 3, 4] → length 4
-        ([100, 4, 200, 1, 3, 2], 4),
-        
-        # Test case 2: Unsorted with duplicates
-        # Input: [1, 2, 2, 3]
-        # Longest sequence: [1, 2, 3] → length 3
-        ([1, 2, 2, 3], 3),
-        
-        # Test case 3: Single element
-        # Input: [5]
-        # Longest sequence: [5] → length 1
-        ([5], 1),
-        
-        # Test case 4: Empty input
-        # Input: []
-        # Expected: 0 (no elements)
-        ([], 0),
-        
-        # Test case 5: All identical elements
-        # Input: [7, 7, 7]
-        # Longest sequence: [7] → length 1
-        ([7, 7, 7], 1),
-        
-        # Test case 6: Negative numbers and mix
-        # Input: [0, -1, 1, 2, -2, -3, 3]
-        # Sorted: [-3, -2, -1, 0, 1, 2, 3]
-        # Longest sequence: [-3, -2, -1, 0, 1, 2, 3] → length 7
-        ([0, -1, 1, 2, -2, -3, 3], 7),
-        
-        # Test case 7: Disjoint sequences
-        # Input: [10, 5, 6, 7, 20, 21, 22]
-        # Longest sequences: [5,6,7] or [20,21,22] → length 3
-        ([10, 5, 6, 7, 20, 21, 22], 3),
-        
-        # Test case 8: Already consecutive and sorted
-        # Input: [1, 2, 3, 4, 5]
-        # Longest sequence: [1, 2, 3, 4, 5] → length 5
-        ([1, 2, 3, 4, 5], 5),
-        
-        # Additional edge case: Large gap between sequences
-        # Input: [1, 2, 3, 100, 101, 102, 200, 201, 202, 203, 204]
-        # Longest sequence: [200, 201, 202, 203, 204] → length 5
-        ([1, 2, 3, 100, 101, 102, 200, 201, 202, 203, 204], 5),
-    ],
-)
-def test_longest_consecutive_various_cases(nums, expected):
-    assert longest_consecutive(nums) == expected
+def test_longest_consecutive_empty_and_single():
+    assert longest_consecutive([]) == 0
+    assert longest_consecutive([5]) == 1
+
+def test_longest_consecutive_already_ordered():
+    assert longest_consecutive([1,2,3,4,5]) == 5
+    assert longest_consecutive([-2,-1,0,1]) == 4
+
+def test_longest_consecutive_with_duplicates():
+    assert longest_consecutive([1,1,1]) == 1
+    assert longest_consecutive([2,2,2,2,2]) == 1
+
+def test_longest_consecutive_negative_numbers():
+    assert longest_consecutive([-1,1,0,2,-2,3]) == 6  # -2,-1,0,1,2,3
+    assert longest_consecutive([-3,-1,-2,0,2,1]) == 6  # -3,-2,-1,0,1,2
+
+def test_longest_consecutive_disconnected_sequences():
+    assert longest_consecutive([10,5,6,100,101,7]) == 3  # 5,6,7
+    assert longest_consecutive([1,3,5,7,9,11]) == 1  # All separate
+
+def test_longest_consecutive_mixed_cases():
+    assert longest_consecutive([1,2,0,1]) == 3  # 0,1,2
+    assert longest_consecutive([9,1,4,7,3,-1,0,5,8,-1,6]) == 7  # -1,0,1,3,4,5,6,7,8,9

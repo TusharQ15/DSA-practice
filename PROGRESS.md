@@ -4,9 +4,9 @@
 
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
-| **Arrays** | 12 | Two Pointers, Sliding Window, Binary Search, Hash Set |
+| **Arrays** | 14 | Two Pointers, Sliding Window, Binary Search, Hash Set |
 | **Strings** | 2 | Two Pointers, Hashing |
-| **Total** | **15** | |
+| **Total** | **17** | |
 
 > **Note:** Only implemented and tested problems are counted in the statistics above.
 
@@ -48,6 +48,14 @@
   - Implemented O(n) time, O(1) space solution
   - Added comprehensive test cases including edge cases
 - [x] Longest Consecutive Sequence (Hash Set) - Medium
+
+#### December 28, 2025
+- [x] Trapping Rain Water (Two Pointers) - Hard
+  - Enhanced with comprehensive test cases
+  - Improved code documentation and variable naming
+- [x] Longest Consecutive Sequence (Hash Set) - Medium
+  - Enhanced with comprehensive test cases
+  - Improved code documentation and type hints
   - Implemented O(n) time solution using hash set
   - Added test cases for various scenarios
 

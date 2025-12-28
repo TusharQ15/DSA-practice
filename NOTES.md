@@ -26,7 +26,20 @@
   - Subarray Sum Equals K
 - **Tip**: Can often reduce O(n²) to O(n)
 
-### 4. Binary Search
+### 4. Two Pointers with Max Tracking
+- **When to use**: Problems requiring tracking of maximum values from both ends of an array
+- **Examples**:
+  - Trapping Rain Water
+  - Container With Most Water
+- **Tip**: Track left and right maximums while moving the pointer with the smaller current value
+
+### 5. Hash Set for Sequence Detection
+- **When to use**: Finding sequences or consecutive elements in unsorted arrays
+- **Examples**:
+  - Longest Consecutive Sequence
+- **Tip**: Only start counting sequences from the smallest number in the sequence (check if num-1 exists)
+
+### 6. Binary Search
 - **When to use**: Sorted arrays, finding min/max of something
 - **Examples**:
   - Search in Rotated Sorted Array
