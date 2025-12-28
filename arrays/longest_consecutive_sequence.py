@@ -6,44 +6,51 @@ Source: https://leetcode.com/problems/longest-consecutive-sequence/
 Difficulty: Medium
 
 Approach:
-- Convert input to a set for O(1) lookups
-- Only start counting from the smallest number in a sequence (num-1 not in set)
-- Expand right to find the full sequence length
-- Track the maximum sequence length found
+- Insert all numbers into a set for O(1) average lookups.
+- For each number, only start a sequence if (num - 1) is not in the set,
+  meaning this number is the start of a potential consecutive sequence.
+- From that start, move forward (num + 1, num + 2, ...) while numbers exist
+  in the set, counting the length.
+- Track the maximum sequence length found.
 
-Time Complexity: O(n)
-Space Complexity: O(n)
+Time Complexity: O(n) on average (each number visited at most twice).
+Space Complexity: O(n) for the set.
 """
 
-from typing import List, Set
+from typing import List
+
 
 def longest_consecutive(nums: List[int]) -> int:
     """
     Find the length of the longest consecutive elements sequence.
-    
+
     Args:
-        nums: List of integers (can be unsorted and contain duplicates)
-    
+        nums: List of integers (can be unsorted and contain duplicates).
+
     Returns:
-        Length of the longest consecutive sequence
+        Length of the longest consecutive sequence.
     """
+    if not nums:
+        return 0
+
     num_set = set(nums)
     longest = 0
-    
+
     for num in num_set:
         # Only start counting from the smallest number in a sequence
         if num - 1 not in num_set:
             current_num = num
             current_length = 1
-            
+
             # Expand to the right as far as possible
             while current_num + 1 in num_set:
                 current_num += 1
                 current_length += 1
-                
+
             # Update the longest sequence found
-            longest = max(longest, current_length)
-    
+            if current_length > longest:
+                longest = current_length
+
     return longest
 
 

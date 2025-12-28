@@ -6,10 +6,13 @@ Source: https://leetcode.com/problems/trapping-rain-water/
 Difficulty: Hard
 
 Approach:
-- Two pointers starting from both ends
-- Track max heights from both sides
-- Water at each point is determined by the smaller of the two max heights
-- Move the pointer with the smaller current height
+- Use two pointers starting from both ends of the array.
+- Track max heights from the left and right.
+- At each step, move the pointer with the smaller current height.
+- For that side, if the current height is less than the max for that side,
+  the difference contributes to trapped water.
+- This works because the water level on a side is limited by the smaller
+  of the two max heights seen so far.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
@@ -17,22 +20,25 @@ Space Complexity: O(1)
 
 from typing import List
 
+
 def trap(height: List[int]) -> int:
     """
     Calculate how much water can be trapped after raining.
-    
+
     Args:
-        height: List of non-negative integers representing elevation map
-    
+        height: List of non-negative integers representing elevation map.
+
     Returns:
-        Total amount of water that can be trapped
+        Total amount of water that can be trapped.
     """
     if not height or len(height) < 3:
         return 0
-        
+
     left, right = 0, len(height) - 1
-    left_max = right_max = water = 0
-    
+    left_max = 0
+    right_max = 0
+    water = 0
+
     while left < right:
         if height[left] < height[right]:
             if height[left] >= left_max:
@@ -46,7 +52,7 @@ def trap(height: List[int]) -> int:
             else:
                 water += right_max - height[right]
             right -= 1
-            
+
     return water
 
 
