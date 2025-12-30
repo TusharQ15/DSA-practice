@@ -120,6 +120,24 @@
   - For each start of a sequence, count how many consecutive numbers follow it
   - This approach ensures O(n) time complexity as each number is processed at most twice
 
+### 14. Valid Anagram – Hash Map / Frequency Counting
+- **When to use**: Checking if two strings are anagrams (contain same characters with same frequencies)
+- **Key Insights**:
+  - Use a single hash map (or fixed-size array for lowercase letters) to count characters from s and subtract using t
+  - If any count is non-zero at the end, not an anagram
+  - Early exit if lengths differ to save time
+- **Time Complexity**: O(n) time, O(1) space for fixed alphabet, O(n) for Unicode
+- **Example**: Valid Anagram
+
+### 15. Valid Palindrome – Two Pointers with Filtering
+- **When to use**: Checking if a string reads the same forwards and backwards, ignoring non-alphanumeric characters and case
+- **Key Insights**:
+  - Maintain left and right indices; move inward, skipping non-alphanumeric characters
+  - Compare lowercase versions of characters
+  - If any mismatch occurs, return false
+- **Time Complexity**: O(n) time, O(1) space
+- **Example**: Valid Palindrome
+
 ### 13. Dynamic Programming
 - **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:

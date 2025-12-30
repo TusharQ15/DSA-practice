@@ -1,54 +1,27 @@
-def is_palindrome(s, case_sensitive=False):
-    """
-    Check if a string is a palindrome.
-    
-    Args:
-        s (str): Input string to check
-        case_sensitive (bool, optional): If False, ignores case. Defaults to False.
-        
-    Returns:
-        bool: True if the string is a palindrome, False otherwise
-        
-    Raises:
-        ValueError: If input is not a string
-    """
-    if not isinstance(s, str):
-        raise ValueError("Input must be a string")
-        
-    # Handle empty string or single character
-    if len(s) <= 1:
-        return True
-        
-    # Convert to lowercase if case-insensitive
-    if not case_sensitive:
-        s = s.lower()
-    
-    # Remove non-alphanumeric characters
-    cleaned = ''.join(c for c in s if c.isalnum())
-    
-    # Check if it reads the same forwards and backwards
-    return cleaned == cleaned[::-1]
+"""
+Problem: Valid Palindrome
 
-def is_palindrome_two_pointers(s, case_sensitive=False):
+Source: https://leetcode.com/problems/valid-palindrome/
+
+Difficulty: Easy
+
+Approach: two-pointer technique from both ends, skipping non-alphanumeric characters and comparing lowercase characters.
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+"""
+
+def is_palindrome(s: str) -> bool:
     """
-    Check if a string is a palindrome using two pointers.
+    Check if a string is a palindrome, considering only alphanumeric characters and ignoring case.
     
     Args:
         s (str): Input string to check
-        case_sensitive (bool, optional): If False, ignores case. Defaults to False.
         
     Returns:
         bool: True if the string is a palindrome, False otherwise
-        
-    Raises:
-        ValueError: If input is not a string
     """
-    if not isinstance(s, str):
-        raise ValueError("Input must be a string")
-        
-    if not case_sensitive:
-        s = s.lower()
-    
     left, right = 0, len(s) - 1
     
     while left < right:
@@ -59,33 +32,11 @@ def is_palindrome_two_pointers(s, case_sensitive=False):
         while left < right and not s[right].isalnum():
             right -= 1
             
-        if s[left] != s[right]:
+        # Compare lowercase characters
+        if s[left].lower() != s[right].lower():
             return False
             
         left += 1
         right -= 1
         
     return True
-
-if __name__ == "__main__":
-    test_cases = [
-        "A man, a plan, a canal: Panama",  # Classic palindrome with punctuation
-        "race a car",                       # Not a palindrome
-        " ",                                # Whitespace
-        "Able was I ere I saw Elba",       # Case-insensitive palindrome
-        "12321",                           # Numeric palindrome
-        "Was it a car or a cat I saw?",    # Phrase palindrome
-        12321,                             # Non-string input (will raise error)
-    ]
-    
-    for i, test in enumerate(test_cases, 1):
-        print(f"Test Case {i}:")
-        print(f"Input: {test}")
-        
-        try:
-            print(f"Is palindrome (simple): {is_palindrome(test) if isinstance(test, str) else 'N/A - Not a string'}")
-            print(f"Is palindrome (two pointers): {is_palindrome_two_pointers(test) if isinstance(test, str) else 'N/A - Not a string'}")
-        except ValueError as e:
-            print(f"Error: {e}")
-            
-        print("-" * 60)

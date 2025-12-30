@@ -5,8 +5,8 @@
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
 | **Arrays** | 14 | Two Pointers, Sliding Window, Binary Search, Hash Set |
-| **Strings** | 2 | Two Pointers, Hashing |
-| **Total** | **17** | |
+| **Strings** | 4 | Two Pointers, Hashing, Frequency Counting |
+| **Total** | **19** | |
 
 > **Note:** Only implemented and tested problems are counted in the statistics above.
 
@@ -59,6 +59,16 @@
   - Implemented O(n) time solution using hash set
   - Added test cases for various scenarios
 
+#### December 30, 2025
+- [x] Valid Anagram (Hash Map/Frequency Counting) - Easy
+  - Implemented character frequency counting approach
+  - Added comprehensive test cases including edge cases
+  - Used O(n) time complexity with early exit optimization
+- [x] Valid Palindrome (Two Pointers) - Easy
+  - Implemented two-pointer technique with filtering
+  - Added comprehensive test cases including punctuation and spaces
+  - Used O(n) time and O(1) space solution
+
 #### December 27, 2024
 - [x] 3Sum (Two Pointers) - Medium
   - Verified implementation with O(n²) time complexity
@@ -92,6 +102,8 @@
 ### Strings
 - [x] Valid Parentheses (Stack) - Easy
 - [x] Longest Substring Without Repeating Characters (Sliding Window) - Medium
+- [x] Valid Anagram (Hash Map/Frequency Counting) - Easy
+- [x] Valid Palindrome (Two Pointers) - Easy
 
 ## Upcoming Problems
 
