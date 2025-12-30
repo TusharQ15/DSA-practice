@@ -5,7 +5,7 @@ Source: https://leetcode.com/problems/product-of-array-except-self/
 
 Difficulty: Medium
 
-Approach: Two-pass solution with prefix and suffix products
+Approach: First pass computes prefix products, second pass multiplies by suffix products
 
 Time Complexity: O(n)
 

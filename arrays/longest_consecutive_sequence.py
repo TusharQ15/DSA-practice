@@ -5,7 +5,7 @@ Source: https://leetcode.com/problems/longest-consecutive-sequence/
 
 Difficulty: Medium
 
-Approach: Hash set to find sequence starts and expand forward
+Approach: Hash set with O(1) lookups, only start counting from sequence beginnings
 
 Time Complexity: O(n)
 

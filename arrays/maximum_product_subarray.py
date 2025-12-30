@@ -5,7 +5,7 @@ Source: https://leetcode.com/problems/maximum-product-subarray/
 
 Difficulty: Medium
 
-Approach: Track both max and min products at each step due to negative numbers
+Approach: Dynamic programming tracking both max and min products to handle negative numbers
 
 Time Complexity: O(n)
 
