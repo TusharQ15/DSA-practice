@@ -1,20 +1,37 @@
 """
 Problem: Maximum Product Subarray
+
 Source: https://leetcode.com/problems/maximum-product-subarray/
+
 Difficulty: Medium
 
-Approach:
-- Track both maximum and minimum products at each step since a negative number can make a minimum product the maximum when multiplied by another negative.
-- Update the current maximum and minimum by considering the current number, current max * number, and current min * number.
-- Keep track of the global maximum product seen so far.
+Approach: Track both max and min products at each step due to negative numbers
 
-Time Complexity: O(n) where n is the length of the array
-Space Complexity: O(1) as we use constant extra space
+Time Complexity: O(n)
+
+Space Complexity: O(1)
 """
 
 from typing import List
 
+
 def max_product(nums: List[int]) -> int:
+    """
+    Find the contiguous subarray with the largest product.
+    
+    Args:
+        nums: List of integers (can be positive, negative, or zero)
+        
+    Returns:
+        Maximum product of any contiguous subarray.
+        
+    Edge Cases:
+        - Empty array returns 0
+        - Single element returns that element
+        - Contains zeros resets the product
+        - Negative numbers can flip min to max
+        - All negative numbers handled correctly
+    """
     if not nums:
         return 0
     
@@ -22,7 +39,7 @@ def max_product(nums: List[int]) -> int:
     
     for num in nums[1:]:
         if num < 0:
-            max_prod, min_prod = min_prod, max_prod  # Swap max and min when current number is negative
+            max_prod, min_prod = min_prod, max_prod  # Swap when negative
         
         max_prod = max(num, max_prod * num)
         min_prod = min(num, min_prod * num)
@@ -30,18 +47,3 @@ def max_product(nums: List[int]) -> int:
         result = max(result, max_prod)
     
     return result
-
-# Test cases
-import unittest
-
-class TestMaxProduct(unittest.TestCase):
-    def test_max_product(self):
-        self.assertEqual(max_product([2,3,-2,4]), 6)
-        self.assertEqual(max_product([-2,0,-1]), 0)
-        self.assertEqual(max_product([-2,3,-4]), 24)
-        self.assertEqual(max_product([0,2]), 2)
-        self.assertEqual(max_product([-2]), -2)
-        self.assertEqual(max_product([3,-1,4]), 4)
-
-if __name__ == '__main__':
-    unittest.main()

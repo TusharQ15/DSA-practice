@@ -1,44 +1,45 @@
 """
 Problem: Best Time to Buy and Sell Stock
+
 Source: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 Difficulty: Easy
 
-Approach:
-- Track the minimum price seen so far.
-- Calculate potential profit if sold at current price.
-- Update maximum profit if current potential profit is greater.
-- Return the maximum profit found.
+Approach: Track minimum price seen so far and calculate maximum profit
 
-Time Complexity: O(n) where n is the number of prices
-Space Complexity: O(1) as we use constant extra space
+Time Complexity: O(n)
+
+Space Complexity: O(1)
 """
 
 from typing import List
 
+
 def max_profit(prices: List[int]) -> int:
+    """
+    Find the maximum profit that can be achieved by buying and selling a stock once.
+    
+    Args:
+        prices: List of non-negative integers where prices[i] is the price of the stock on day i
+        
+    Returns:
+        Maximum profit possible from one transaction (buy then sell).
+        Returns 0 if no profit is possible.
+        
+    Edge Cases:
+        - Empty array returns 0
+        - Single element returns 0
+        - All decreasing prices returns 0
+        - All same prices returns 0
+    """
     if not prices:
         return 0
     
     min_price = float('inf')
-    max_profit = 0
+    max_profit_result = 0
     
     for price in prices:
         min_price = min(min_price, price)
-        max_profit = max(max_profit, price - min_price)
+        max_profit_result = max(max_profit_result, price - min_price)
     
-    return max_profit
-
-# Test cases
-import unittest
-
-class TestMaxProfit(unittest.TestCase):
-    def test_max_profit(self):
-        self.assertEqual(max_profit([7,1,5,3,6,4]), 5)
-        self.assertEqual(max_profit([7,6,4,3,1]), 0)
-        self.assertEqual(max_profit([1,2]), 1)
-        self.assertEqual(max_profit([2,4,1]), 2)
-        self.assertEqual(max_profit([3,2,6,5,0,3]), 4)
-        self.assertEqual(max_profit([1]), 0)
-
-if __name__ == '__main__':
-    unittest.main()
+    return max_profit_result

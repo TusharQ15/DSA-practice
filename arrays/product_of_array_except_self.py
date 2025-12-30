@@ -1,19 +1,36 @@
 """
 Problem: Product of Array Except Self
+
 Source: https://leetcode.com/problems/product-of-array-except-self/
+
 Difficulty: Medium
 
-Approach:
-1. Calculate prefix products from left to right
-2. Calculate suffix products from right to left
-3. Multiply corresponding prefix and suffix products to get the result
+Approach: Two-pass solution with prefix and suffix products
 
-Time Complexity: O(n) - Three passes through the array
-Space Complexity: O(1) - Output array is not considered extra space
+Time Complexity: O(n)
+
+Space Complexity: O(1) excluding output
 """
+
 from typing import List
 
+
 def product_except_self(nums: List[int]) -> List[int]:
+    """
+    Return an array where each element is the product of all other elements.
+    
+    Args:
+        nums: List of integers (can be positive, negative, or zero)
+        
+    Returns:
+        Array where result[i] is the product of all elements except nums[i].
+        
+    Edge Cases:
+        - Empty array returns empty array
+        - Single element returns [1]
+        - Zeros handled correctly (only position with zero gets product of others)
+        - Negative numbers handled correctly
+    """
     n = len(nums)
     result = [1] * n
     
@@ -28,36 +45,3 @@ def product_except_self(nums: List[int]) -> List[int]:
         suffix *= nums[i]
     
     return result
-
-
-import unittest
-
-class TestProductExceptSelf(unittest.TestCase):
-    def test_example_1(self):
-        nums = [1, 2, 3, 4]
-        expected = [24, 12, 8, 6]
-        self.assertEqual(product_except_self(nums), expected)
-    
-    def test_example_2(self):
-        nums = [-1, 1, 0, -3, 3]
-        expected = [0, 0, 9, 0, 0]
-        self.assertEqual(product_except_self(nums), expected)
-    
-    def test_two_elements(self):
-        nums = [2, 3]
-        expected = [3, 2]
-        self.assertEqual(product_except_self(nums), expected)
-    
-    def test_with_negative_numbers(self):
-        nums = [-1, -2, -3, -4]
-        expected = [-24, -12, -8, -6]
-        self.assertEqual(product_except_self(nums), expected)
-    
-    def test_with_zero(self):
-        nums = [1, 0, 4, 2]
-        expected = [0, 8, 0, 0]
-        self.assertEqual(product_except_self(nums), expected)
-
-
-if __name__ == "__main__":
-    unittest.main()

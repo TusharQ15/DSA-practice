@@ -1,19 +1,14 @@
 """
-Search in Rotated Sorted Array - Binary Search in Rotated Array
+Problem: Search in Rotated Sorted Array
 
-Problem link: https://leetcode.com/problems/search-in-rotated-sorted-array/
-Topics: Array, Binary Search
+Source: https://leetcode.com/problems/search-in-rotated-sorted-array/
+
 Difficulty: Medium
 
-Approach:
-
-- Use modified binary search to handle rotation
-- Determine which half is sorted at each step
-- Check if target lies in the sorted half
-- Search in the appropriate half based on comparison
-- Continue until target found or search space exhausted
+Approach: Modified binary search to handle rotation by determining which half is sorted at each step
 
 Time Complexity: O(log n)
+
 Space Complexity: O(1)
 """
 
@@ -26,12 +21,17 @@ def search(nums: List[int], target: int) -> int:
     Search for target in a rotated sorted array.
     
     Args:
-        nums: List of unique integers sorted in ascending order and
-              rotated at some pivot (e.g., [4,5,6,7,0,1,2])
+        nums: List of unique integers sorted in ascending order and rotated at some pivot
         target: The integer to search for
               
     Returns:
         The index of target if it is in nums, or -1 if not found.
+        
+    Edge Cases:
+        - Empty array returns -1
+        - Single element array works correctly
+        - Array not rotated (purely sorted) works correctly
+        - Target not present returns -1
     """
     left, right = 0, len(nums) - 1
     

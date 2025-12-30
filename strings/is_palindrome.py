@@ -1,23 +1,36 @@
 """
 Problem: Valid Palindrome
+
 Source: https://leetcode.com/problems/valid-palindrome/
+
 Difficulty: Easy
 
-Approach: Use a two-pointer technique from both ends, skipping non-alphanumeric
-characters and comparing lowercase characters.
+Approach: Two pointers from both ends, skipping non-alphanumeric characters
+
 Time Complexity: O(n)
+
 Space Complexity: O(1)
 """
+
+from typing import List
+
 
 def is_palindrome(s: str) -> bool:
     """
     Check if a string is a palindrome, considering only alphanumeric characters and ignoring case.
     
     Args:
-        s (str): Input string to check
+        s: Input string to check (may contain any Unicode characters)
         
     Returns:
-        bool: True if the string is a palindrome, False otherwise
+        True if the string is a palindrome under the specified conditions, False otherwise.
+        
+    Edge Cases:
+        - Empty string returns True
+        - String with only non-alphanumeric characters returns True
+        - Single character returns True
+        - Case is ignored for comparison
+        - Only alphanumeric characters are considered
     """
     left, right = 0, len(s) - 1
     

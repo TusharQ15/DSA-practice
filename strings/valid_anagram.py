@@ -1,26 +1,37 @@
 """
 Problem: Valid Anagram
+
 Source: https://leetcode.com/problems/valid-anagram/
+
 Difficulty: Easy
 
-Approach: Use a hash map to count character frequencies in the first string,
-then decrement counts for the second string and early-exit on mismatch.
+Approach: Hash map frequency count with early exit on mismatch
+
 Time Complexity: O(n)
-Space Complexity: O(n) - hash map for character frequencies
+
+Space Complexity: O(1) for ASCII, O(n) for Unicode
 """
 
 from typing import Dict
+
 
 def is_anagram(s: str, t: str) -> bool:
     """
     Check if two strings are anagrams of each other.
     
     Args:
-        s (str): First string
-        t (str): Second string
+        s: First string (may contain any Unicode characters)
+        t: Second string (may contain any Unicode characters)
         
     Returns:
-        bool: True if t is an anagram of s, False otherwise
+        True if t is an anagram of s, False otherwise.
+        
+    Edge Cases:
+        - Different lengths immediately return False
+        - Empty strings return True
+        - Case is considered (case-sensitive)
+        - All Unicode characters are supported
+        - Works with duplicate characters
     """
     # Early exit if lengths differ
     if len(s) != len(t):

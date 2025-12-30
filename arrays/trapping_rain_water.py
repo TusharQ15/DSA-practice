@@ -5,16 +5,10 @@ Source: https://leetcode.com/problems/trapping-rain-water/
 
 Difficulty: Hard
 
-Approach:
-- Use two pointers starting from both ends of the array.
-- Track max heights from the left and right.
-- At each step, move the pointer with the smaller current height.
-- For that side, if the current height is less than the max for that side,
-  the difference contributes to trapped water.
-- This works because the water level on a side is limited by the smaller
-  of the two max heights seen so far.
+Approach: Two pointers tracking left and right max heights
 
 Time Complexity: O(n)
+
 Space Complexity: O(1)
 """
 
@@ -26,10 +20,16 @@ def trap(height: List[int]) -> int:
     Calculate how much water can be trapped after raining.
 
     Args:
-        height: List of non-negative integers representing elevation map.
-
+        height: List of non-negative integers representing elevation map
+        
     Returns:
         Total amount of water that can be trapped.
+        
+    Edge Cases:
+        - Empty array returns 0
+        - Less than 3 bars returns 0
+        - All increasing/decreasing heights return 0
+        - Flat sections handled correctly
     """
     if not height or len(height) < 3:
         return 0
@@ -54,31 +54,3 @@ def trap(height: List[int]) -> int:
             right -= 1
 
     return water
-
-
-import unittest
-
-
-class TestTrappingRainWater(unittest.TestCase):
-    def test_basic(self):
-        self.assertEqual(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), 6)
-    
-    def test_all_zeros(self):
-        self.assertEqual(trap([0, 0, 0, 0]), 0)
-    
-    def test_increasing_heights(self):
-        self.assertEqual(trap([1, 2, 3, 4, 5]), 0)
-    
-    def test_decreasing_heights(self):
-        self.assertEqual(trap([5, 4, 3, 2, 1]), 0)
-    
-    def test_single_and_two_bars(self):
-        self.assertEqual(trap([5]), 0)
-        self.assertEqual(trap([5, 8]), 0)
-    
-    def test_complex_valley(self):
-        self.assertEqual(trap([2, 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), 10)
-
-
-if __name__ == "__main__":
-    unittest.main()

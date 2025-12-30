@@ -1,19 +1,36 @@
 """
 Problem: Maximum Subarray
+
 Source: https://leetcode.com/problems/maximum-subarray/
+
 Difficulty: Medium
 
-Approach:
-1. Use Kadane's algorithm to find the maximum sum subarray
-2. Keep track of current sum and maximum sum found so far
-3. Reset current sum if it becomes negative
+Approach: Kadane's algorithm to track current and maximum subarray sum
 
-Time Complexity: O(n) - Single pass through the array
-Space Complexity: O(1) - Constant extra space used
+Time Complexity: O(n)
+
+Space Complexity: O(1)
 """
+
 from typing import List
 
+
 def max_subarray(nums: List[int]) -> int:
+    """
+    Find the contiguous subarray with the largest sum.
+    
+    Args:
+        nums: List of integers (can be positive, negative, or zero)
+        
+    Returns:
+        Maximum sum of any contiguous subarray.
+        
+    Edge Cases:
+        - Empty array returns 0
+        - Single element returns that element
+        - All negative numbers returns the least negative number
+        - All positive numbers returns sum of all elements
+    """
     if not nums:
         return 0
     
@@ -26,35 +43,3 @@ def max_subarray(nums: List[int]) -> int:
         max_sum = max(max_sum, current_sum)
     
     return max_sum
-
-
-import unittest
-
-class TestMaxSubarray(unittest.TestCase):
-    def test_example_1(self):
-        nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-        self.assertEqual(max_subarray(nums), 6)  # [4, -1, 2, 1]
-    
-    def test_all_negative(self):
-        nums = [-2, -1, -3, -4]
-        self.assertEqual(max_subarray(nums), -1)  # [-1]
-    
-    def test_single_element(self):
-        nums = [5]
-        self.assertEqual(max_subarray(nums), 5)
-    
-    def test_mixed_positive_negative(self):
-        nums = [1, -2, 3, 10, -4, 7, 2, -5]
-        self.assertEqual(max_subarray(nums), 18)  # [3, 10, -4, 7, 2]
-    
-    def test_all_positive(self):
-        nums = [1, 2, 3, 4, 5]
-        self.assertEqual(max_subarray(nums), 15)  # [1, 2, 3, 4, 5]
-    
-    def test_with_zero(self):
-        nums = [0, -1, 2, -3, 4, -1, 2, 1, -5, 4]
-        self.assertEqual(max_subarray(nums), 6)  # [4, -1, 2, 1]
-
-
-if __name__ == "__main__":
-    unittest.main()

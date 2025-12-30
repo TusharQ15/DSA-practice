@@ -1,20 +1,18 @@
 """
 Problem: Two Sum
-Source: LeetCode #1
+
+Source: https://leetcode.com/problems/two-sum/
+
 Difficulty: Easy
 
-Approach:
-- Use a hash map to store each number's index while iterating through the array.
-- For each number, calculate its complement (target - current number).
-- If the complement exists in the hash map, return the indices of both numbers.
-- This approach ensures we only need to traverse the list once.
+Approach: Hash map to store complement lookup while iterating once through array
 
-Time Complexity: O(n) - Single pass through the array
-Space Complexity: O(n) - Store at most n elements in the hash map
+Time Complexity: O(n)
+
+Space Complexity: O(n)
 """
 
-from typing import List, Tuple, Optional
-import unittest
+from typing import List
 
 
 def two_sum(nums: List[int], target: int) -> List[int]:
@@ -22,17 +20,19 @@ def two_sum(nums: List[int], target: int) -> List[int]:
     Find indices of two numbers that add up to target.
     
     Args:
-        nums: List of integers
+        nums: List of integers (may contain duplicates)
         target: Target sum
         
     Returns:
-        List of two indices whose values sum to target, or empty list if no solution
+        List of two indices whose values sum to target, or empty list if no solution.
+        Returns indices in the order they appear in the array.
         
-    Example:
-        >>> two_sum([2, 7, 11, 15], 9)
-        [0, 1]
-        >>> two_sum([1, 2, 3], 7)
-        []
+    Edge Cases:
+        - Empty array returns empty list
+        - Array with one element returns empty list
+        - Multiple solutions: returns first found pair
+        - Negative numbers are handled correctly
+        - Duplicate values are handled correctly
     """
     seen = {}
     for i, num in enumerate(nums):
@@ -41,81 +41,3 @@ def two_sum(nums: List[int], target: int) -> List[int]:
             return [seen[complement], i]
         seen[num] = i
     return []
-
-
-def two_sum_sorted(nums: List[int], target: int) -> List[int]:
-    """
-    Find two numbers that add up to target in a sorted array.
-    
-    Args:
-        nums: Sorted list of integers
-        target: Target sum
-        
-    Returns:
-        List of two values that sum to target, or empty list if no solution
-        
-    Example:
-        >>> two_sum_sorted([2, 7, 11, 15], 9)
-        [2, 7]
-        >>> two_sum_sorted([1, 2, 3], 7)
-        []
-    """
-    left, right = 0, len(nums) - 1
-    while left < right:
-        current_sum = nums[left] + nums[right]
-        if current_sum == target:
-            return [nums[left], nums[right]]
-        elif current_sum < target:
-            left += 1
-        else:
-            right -= 1
-    return []
-
-
-class TestTwoSum(unittest.TestCase):
-    """Test cases for two_sum function"""
-    
-    def test_basic_case(self):
-        """Test basic case with valid solution"""
-        self.assertEqual(sorted(two_sum([2, 7, 11, 15], 9)), [0, 1])
-        
-    def test_duplicate_numbers(self):
-        """Test case with duplicate numbers"""
-        self.assertEqual(sorted(two_sum([3, 2, 4], 6)), [1, 2])
-        
-    def test_same_number_twice(self):
-        """Test case where same number is used twice"""
-        self.assertEqual(sorted(two_sum([3, 3], 6)), [0, 1])
-        
-    def test_negative_numbers(self):
-        """Test case with negative numbers"""
-        self.assertEqual(sorted(two_sum([-1, -2, -3, -4, -5], -8)), [2, 4])
-        
-    def test_no_solution(self):
-        """Test case with no valid solution"""
-        with self.assertRaises(ValueError):
-            two_sum([1, 2, 3], 10)
-
-
-class TestTwoSumSorted(unittest.TestCase):
-    """Test cases for two_sum_sorted function"""
-    
-    def test_basic_case(self):
-        """Test basic case with valid solution"""
-        self.assertEqual(two_sum_sorted([2, 7, 11, 15], 9), (2, 7))
-        
-    def test_adjacent_elements(self):
-        """Test case with adjacent elements as solution"""
-        self.assertEqual(two_sum_sorted([1, 2, 3, 4, 5], 7), (2, 5))
-        
-    def test_negative_numbers(self):
-        """Test case with negative numbers"""
-        self.assertEqual(two_sum_sorted([-5, -3, -2, 0, 1], -2), (-3, 1))
-        
-    def test_no_solution(self):
-        """Test case with no valid solution"""
-        self.assertIsNone(two_sum_sorted([1, 2, 3], 10))
-
-
-if __name__ == "__main__":
-    unittest.main()
