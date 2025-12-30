@@ -5,6 +5,10 @@ def test_valid_palindrome_example():
     """Test example with spaces and punctuation."""
     assert is_palindrome("A man, a plan, a canal: Panama") == True
 
+def test_valid_palindrome_simple():
+    """Test simple palindrome case."""
+    assert is_palindrome("aba") == True
+
 def test_valid_palindrome_non_palindrome():
     """Test non-palindrome with spaces."""
     assert is_palindrome("race a car") == False

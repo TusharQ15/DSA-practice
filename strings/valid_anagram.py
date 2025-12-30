@@ -1,15 +1,12 @@
 """
 Problem: Valid Anagram
-
 Source: https://leetcode.com/problems/valid-anagram/
-
 Difficulty: Easy
 
-Approach: character frequency counting using a hash map; compare counts for both strings; early-exit if lengths differ.
-
+Approach: Use a hash map to count character frequencies in the first string,
+then decrement counts for the second string and early-exit on mismatch.
 Time Complexity: O(n)
-
-Space Complexity: O(n) - using hash map for character frequencies
+Space Complexity: O(n) - hash map for character frequencies
 """
 
 from typing import Dict

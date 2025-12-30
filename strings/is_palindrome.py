@@ -1,14 +1,11 @@
 """
 Problem: Valid Palindrome
-
 Source: https://leetcode.com/problems/valid-palindrome/
-
 Difficulty: Easy
 
-Approach: two-pointer technique from both ends, skipping non-alphanumeric characters and comparing lowercase characters.
-
+Approach: Use a two-pointer technique from both ends, skipping non-alphanumeric
+characters and comparing lowercase characters.
 Time Complexity: O(n)
-
 Space Complexity: O(1)
 """
 
