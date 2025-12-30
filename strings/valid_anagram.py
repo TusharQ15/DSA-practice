@@ -9,7 +9,7 @@ Approach: character frequency counting using a hash map; compare counts for both
 
 Time Complexity: O(n)
 
-Space Complexity: O(1) - using fixed-size array for lowercase letters, or O(n) for general Unicode
+Space Complexity: O(n) - using hash map for character frequencies
 """
 
 from typing import Dict

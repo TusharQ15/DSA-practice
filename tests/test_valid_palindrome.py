@@ -41,3 +41,8 @@ def test_valid_palindrome_with_spaces():
 def test_valid_palindrome_mixed_case_and_punctuation():
     """Test mixed case with punctuation."""
     assert is_palindrome("No 'x' in Nixon") == True
+
+def test_valid_palindrome_mixed_alphanumeric_palindrome():
+    """Test mixed alphanumeric palindrome."""
+    assert is_palindrome("12321 A man, a plan, a canal: Panama 12321") == True
+    assert is_palindrome("1a2b2a1") == True

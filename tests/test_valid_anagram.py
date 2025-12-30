@@ -44,3 +44,9 @@ def test_valid_anagram_with_spaces():
     """Test with spaces (should be treated as characters)."""
     assert is_anagram("a b", "b a") == True
     assert is_anagram("ab", "a b") == False
+
+def test_valid_anagram_long_strings():
+    """Test with longer strings to ensure efficiency."""
+    s = "a" * 1000 + "b" * 1000
+    t = "b" * 1000 + "a" * 1000
+    assert is_anagram(s, t) == True
