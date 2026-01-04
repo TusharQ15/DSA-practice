@@ -14,7 +14,7 @@ Time Complexity: O(n + m) where n is length of s, m is length of t
 Space Complexity: O(k) where k is number of unique characters in t
 """
 
-from typing import Dict
+from typing import Dict, List
 from collections import Counter
 
 
@@ -38,7 +38,7 @@ def min_window(s: str, t: str) -> str:
     
     # Count required characters
     need = Counter(t)
-    have = {}
+    have = Counter()
     required = len(need)  # Number of unique characters needed
     formed = 0  # Number of unique characters with required count in current window
     
@@ -49,7 +49,7 @@ def min_window(s: str, t: str) -> str:
     # Expand window with right pointer
     for right, char in enumerate(s):
         # Add current character to window
-        have[char] = have.get(char, 0) + 1
+        have[char] += 1
         
         # Check if current character meets required count
         if char in need and have[char] == need[char]:

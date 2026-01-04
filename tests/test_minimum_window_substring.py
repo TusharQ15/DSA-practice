@@ -85,3 +85,35 @@ def test_duplicate_characters_window():
     t = "AAB"
     result = min_window(s, t)
     assert result == "AAB"
+
+
+def test_case_sensitivity():
+    """Test case sensitivity in matching."""
+    s = "abcABC"
+    t = "ABC"
+    result = min_window(s, t)
+    assert result == "ABC"
+
+
+def test_unicode_characters():
+    """Test case with Unicode characters."""
+    s = "héllo wörld"
+    t = "éö"
+    result = min_window(s, t)
+    assert result == "éllo wö"
+
+
+def test_overlapping_requirements():
+    """Test case where characters in t overlap in s."""
+    s = "aabcbcdbca"
+    t = "abc"
+    result = min_window(s, t)
+    assert result == "abc"
+
+
+def test_single_character_not_found():
+    """Test case where single character is not found."""
+    s = "abcdef"
+    t = "z"
+    result = min_window(s, t)
+    assert result == ""

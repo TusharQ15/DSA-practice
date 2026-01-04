@@ -70,3 +70,35 @@ def test_complex_anagrams():
     sorted_expected.sort()
     
     assert sorted_result == sorted_expected
+
+
+def test_case_sensitive_anagrams():
+    """Test case sensitivity in anagrams."""
+    input_strs = ["a", "A", "b", "B"]
+    result = group_anagrams(input_strs)
+    
+    # Sort each group and the result for consistent comparison
+    sorted_result = [sorted(group) for group in result]
+    sorted_result.sort()
+    
+    expected = [["A"], ["B"], ["a"], ["b"]]
+    sorted_expected = [sorted(group) for group in expected]
+    sorted_expected.sort()
+    
+    assert sorted_result == sorted_expected
+
+
+def test_unicode_characters():
+    """Test case with Unicode characters."""
+    input_strs = ["ñá", "áñ", "hello", "olleh"]
+    result = group_anagrams(input_strs)
+    
+    # Sort each group and the result for consistent comparison
+    sorted_result = [sorted(group) for group in result]
+    sorted_result.sort()
+    
+    expected = [["áñ", "ñá"], ["hello", "olleh"]]
+    sorted_expected = [sorted(group) for group in expected]
+    sorted_expected.sort()
+    
+    assert sorted_result == sorted_expected
