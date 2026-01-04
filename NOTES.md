@@ -138,6 +138,18 @@
 - **Time Complexity**: O(n) time, O(1) space
 - **Example**: Valid Palindrome
 
+## Sliding Window + Hash Map
+
+### Longest Substring Without Repeating Characters
+- Maintain a sliding window [left, right] where all characters are unique
+- Use hash map to store last index of each character; when duplicate found, move left to max(left, last_seen[char]+1)
+- Track maximum window length seen so far
+
+### Longest Repeating Character Replacement
+- Sliding window where (window_length - max_frequency) <= k
+- Track character frequencies in window using hash map/array
+- Shrink window from left when condition violated
+
 ### 13. Dynamic Programming
 - **When to use**: Problems with optimal substructure and overlapping subproblems, or when a problem can be broken down into simpler subproblems
 - **Examples**:

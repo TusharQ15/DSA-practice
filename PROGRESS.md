@@ -5,8 +5,8 @@
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
 | **Arrays** | 14 | Two Pointers, Sliding Window, Binary Search, Hash Set |
-| **Strings** | 4 | Two Pointers, Hashing, Frequency Counting |
-| **Total** | **19** | |
+| **Strings** | 6 | Two Pointers, Hashing, Frequency Counting, Sliding Window |
+| **Total** | **21** | |
 
 > **Note:** Only implemented and tested problems are counted in the statistics above.
 
@@ -70,12 +70,21 @@
   - Used O(n) time and O(1) space solution
 
 #### December 27, 2024
+
 - [x] 3Sum (Two Pointers) - Medium
   - Verified implementation with O(n²) time complexity
   - Confirmed comprehensive test coverage
 - [x] Container With Most Water (Two Pointers) - Medium
   - Verified O(n) solution
   - Confirmed test coverage including edge cases
+
+### January 04, 2026
+
+#### Sunday, January 04, 2026
+
+Strings (2 problems):
+- Longest Substring Without Repeating Characters
+- Longest Repeating Character Replacement
 
 ## Problem Solutions
 
@@ -102,6 +111,7 @@
 ### Strings
 - [x] Valid Parentheses (Stack) - Easy
 - [x] Longest Substring Without Repeating Characters (Sliding Window) - Medium
+- [x] Longest Repeating Character Replacement (Sliding Window) - Medium
 - [x] Valid Anagram (Hash Map/Frequency Counting) - Easy
 - [x] Valid Palindrome (Two Pointers) - Easy
 
