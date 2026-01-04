@@ -117,3 +117,11 @@ def test_single_character_not_found():
     t = "z"
     result = min_window(s, t)
     assert result == ""
+
+
+def test_duplicate_characters_complex():
+    """Test case with complex duplicate character requirements."""
+    s = "aaabbbccc"
+    t = "abc"
+    result = min_window(s, t)
+    assert result == "abbbc"
