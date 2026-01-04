@@ -138,6 +138,26 @@
 - **Time Complexity**: O(n) time, O(1) space
 - **Example**: Valid Palindrome
 
+### 16. Group Anagrams – Hash Map / Sorting
+- **When to use**: Grouping strings that are anagrams of each other
+- **Key Insights**:
+  - Use a hash map from sorted string or character count signature to list of words
+  - Sorting each string or building a frequency tuple creates a stable key for grouping
+  - Collect all strings with the same signature into groups
+- **Time Complexity**: O(n * k log k) where n is number of strings, k is average string length
+- **Space Complexity**: O(n * k) for storing groups and hash map
+- **Example**: Group Anagrams
+
+### 17. Minimum Window Substring – Sliding Window with Character Counting
+- **When to use**: Finding the minimum window substring containing all characters of another string
+- **Key Insights**:
+  - Use a sliding window with two pointers [left, right] over s while tracking counts of required characters from t
+  - Maintain a hash map of required counts and another for current window; shrink from the left when window is valid to find the minimum
+  - Track when window contains all required characters and minimize window size
+- **Time Complexity**: O(n + m) where n is length of s, m is length of t
+- **Space Complexity**: O(k) where k is number of unique characters in t
+- **Example**: Minimum Window Substring
+
 ## Sliding Window + Hash Map
 
 ### Longest Substring Without Repeating Characters
