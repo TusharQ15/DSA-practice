@@ -35,8 +35,8 @@ def test_valid_parentheses_nested():
     """Test deeply nested cases"""
     assert is_valid_parentheses("((()))") == True
     assert is_valid_parentheses("({[({})]})") == True
-    assert is_valid_parentheses("({[({})]})") == True
-    assert is_valid_parentheses("({[({})]})") == True
+    assert is_valid_parentheses("[{({[()]})}]") == True
+    assert is_valid_parentheses("{[({[({})]})]}") == True
 
 
 def test_valid_parentheses_single_type():
@@ -46,3 +46,13 @@ def test_valid_parentheses_single_type():
     assert is_valid_parentheses("(()())") == True
     assert is_valid_parentheses("())(") == False
     assert is_valid_parentheses("((())") == False
+
+
+def test_valid_parentheses_single_character():
+    """Test single character edge cases"""
+    assert is_valid_parentheses(")") == False
+    assert is_valid_parentheses("(") == False
+    assert is_valid_parentheses("]") == False
+    assert is_valid_parentheses("[") == False
+    assert is_valid_parentheses("}") == False
+    assert is_valid_parentheses("{") == False

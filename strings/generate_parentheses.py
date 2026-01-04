@@ -4,8 +4,8 @@ Source: https://leetcode.com/problems/generate-parentheses/
 Difficulty: Medium
 
 Approach:
-- Recursively add '(' if open count < n.
-- Recursively add ')' if close count < open count.
+- Use backtracking to build valid combinations recursively.
+- Add '(' if open count < n; add ')' if close count < open count.
 - Base case: when open == close == n, add to result.
 - Generates only valid combinations by construction.
 

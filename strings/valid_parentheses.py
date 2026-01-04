@@ -5,7 +5,7 @@ Difficulty: Easy
 
 Approach:
 - Use stack to track opening brackets; pop and match closing brackets.
-- Map closing brackets to their opening counterparts for quick lookup.
+- Map closing brackets to their opening counterparts for O(1) lookup.
 - Return False if stack empty when closing bracket encountered.
 - Empty stack at end means perfectly balanced.
 

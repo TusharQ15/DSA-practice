@@ -46,7 +46,7 @@ def test_generate_parentheses_consistency():
         for s in result:
             # Check length
             assert len(s) == 2 * n
-            # Check validity
+            # Check validity using helper function
             assert is_valid_parentheses_string(s)
 
 
@@ -78,3 +78,13 @@ def test_generate_parentheses_uniqueness():
     for n in range(1, 6):
         result = generate_parentheses(n)
         assert len(result) == len(set(result))  # No duplicates
+
+
+def test_generate_parentheses_boundary():
+    """Test boundary cases and large inputs"""
+    # Test n=5 (Catalan number 42)
+    result5 = generate_parentheses(5)
+    assert len(result5) == 42
+    # Verify a few known combinations for n=5 (using actual generated combinations)
+    known_combinations = {"((((()))))", "(((()())))", "(((())()))", "(((()))())", "(((())))()"}
+    assert known_combinations.issubset(set(result5))
