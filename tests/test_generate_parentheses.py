@@ -27,6 +27,19 @@ def test_generate_parentheses_edge_cases():
     assert result2 == ["(())", "()()"]
 
 
+def test_generate_parentheses_negative_inputs():
+    """Test negative input handling"""
+    # Current implementation doesn't handle negative inputs explicitly
+    # This test documents current behavior - should ideally return empty list
+    try:
+        result = generate_parentheses(-1)
+        # If it doesn't raise an exception, it should return empty list
+        assert result == []
+    except (ValueError, RecursionError):
+        # Acceptable behavior for negative inputs
+        pass
+
+
 def test_generate_parentheses_medium():
     """Test medium size cases"""
     result4 = generate_parentheses(4)

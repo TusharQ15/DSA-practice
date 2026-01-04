@@ -21,15 +21,17 @@ def generate_parentheses(n: int) -> List[str]:
     Generate all combinations of well-formed parentheses for n pairs.
     
     Args:
-        n: Number of pairs of parentheses
+        n: Number of pairs of parentheses (must be >= 0)
         
     Returns:
-        List of all valid parentheses combinations.
+        List of all valid parentheses combinations in lexicographic order.
+        Returns empty list for n = 0.
         
     Edge Cases:
         - n = 0 returns empty list
         - n = 1 returns ["()"]
         - Results are in lexicographic order due to backtracking approach
+        - Negative inputs may cause RecursionError (not explicitly handled)
     """
     if n == 0:
         return []

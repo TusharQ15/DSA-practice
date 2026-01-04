@@ -30,6 +30,7 @@ def is_valid_parentheses(s: str) -> bool:
         - Single opening bracket returns False
         - Mismatched closing bracket returns False
         - Properly nested brackets return True
+        - Invalid characters return False (though shouldn't occur per constraints)
     """
     # Stack to store opening brackets
     stack = []
