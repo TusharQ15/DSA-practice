@@ -45,3 +45,17 @@ def test_character_replacement_mixed_patterns():
     
     # Test case 10: Long string with one dominant character
     assert character_replacement("AAABBBBB", 1) == 6
+
+def test_character_replacement_edge_cases_extended():
+    """Test additional edge cases"""
+    # Test with single character
+    assert character_replacement("A", 0) == 1
+    assert character_replacement("A", 5) == 1
+    
+    # Test with k=0 and mixed characters
+    assert character_replacement("ABC", 0) == 2  # "AB" or "BC"
+    assert character_replacement("AAB", 0) == 3  # "AAB"
+    
+    # Test with all same characters
+    assert character_replacement("AAAAA", 2) == 5
+    assert character_replacement("BBBB", 0) == 4

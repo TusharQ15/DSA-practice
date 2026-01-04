@@ -22,8 +22,8 @@ def character_replacement(s: str, k: int) -> int:
     performing at most k character replacements.
     
     Args:
-        s: Input string consisting of uppercase letters
-        k: Maximum number of character replacements allowed
+        s: Input string consisting of uppercase English letters (A-Z)
+        k: Maximum number of character replacements allowed (k >= 0)
         
     Returns:
         Length of the longest possible substring after at most k replacements
@@ -32,6 +32,9 @@ def character_replacement(s: str, k: int) -> int:
         - Empty string returns 0
         - k >= len(s) returns len(s)
         - All characters already the same returns len(s)
+        
+    Note: Function assumes input contains only uppercase English letters.
+    For lowercase or mixed case, convert to uppercase before calling.
     """
     char_counts: List[int] = [0] * 26  # For uppercase English letters
     left = 0

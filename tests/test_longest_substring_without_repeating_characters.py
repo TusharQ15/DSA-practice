@@ -44,3 +44,20 @@ def test_longest_substring_mixed_patterns():
     
     # Test with repeated pattern
     assert length_of_longest_substring("abcaefgh") == 7  # "bcaefgh"
+
+def test_longest_substring_unicode():
+    """Test Unicode and special characters"""
+    # Test with emoji
+    assert length_of_longest_substring("😀😃😀😄😁") == 4  # "😃😀😄😁"
+    
+    # Test with mixed Unicode (accented characters count separately)
+    assert length_of_longest_substring("héllo🌟world") == 6  # "llo🌟world"
+    
+    # Test with only spaces
+    assert length_of_longest_substring("   ") == 1
+
+def test_longest_substring_performance():
+    """Test with longer string"""
+    # Test with long repeating pattern
+    long_string = "abcdefghijklmnopqrstuvwxyz" * 100
+    assert length_of_longest_substring(long_string) == 26
