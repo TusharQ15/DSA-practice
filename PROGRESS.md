@@ -5,8 +5,8 @@
 | Topic | Problems | Key Patterns |
 |-------|----------|--------------|
 | **Arrays** | 14 | Two Pointers, Sliding Window, Binary Search, Hash Set |
-| **Strings** | 8 | Two Pointers, Hashing, Frequency Counting, Sliding Window |
-| **Total** | **23** | |
+| **Strings** | 10 | Two Pointers, Hashing, Frequency Counting, Sliding Window, Stack, Backtracking |
+| **Total** | **25** | |
 
 > **Note:** Only implemented and tested problems are counted in the statistics above.
 
@@ -88,11 +88,13 @@ Strings (2 problems):
 
 #### Sunday, January 04, 2026 (Updated)
 
-Strings (4 problems):
+Strings (6 problems):
 - Longest Substring Without Repeating Characters
 - Longest Repeating Character Replacement
 - Strings – Group Anagrams
 - Strings – Minimum Window Substring
+- Strings – Valid Parentheses
+- Strings – Generate Parentheses
 
 ## Problem Solutions
 
@@ -124,6 +126,7 @@ Strings (4 problems):
 - [x] Valid Palindrome (Two Pointers) - Easy
 - [x] Group Anagrams (Hash Map/Sorting) - Medium
 - [x] Minimum Window Substring (Sliding Window) - Hard
+- [x] Generate Parentheses (Backtracking) - Medium
 
 ## Upcoming Problems
 

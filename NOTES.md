@@ -158,6 +158,27 @@
 - **Space Complexity**: O(k) where k is number of unique characters in t
 - **Example**: Minimum Window Substring
 
+### 18. Strings – Valid Parentheses (Stack)
+- **When to use**: Validating nested brackets, parentheses, and braces
+- **Key Insights**:
+  - Use stack to track opening brackets; pop and match closing brackets
+  - Map closing brackets to their opening counterparts for quick lookup
+  - Return False if stack empty when closing bracket encountered
+  - Empty stack at end means perfectly balanced
+- **Time Complexity**: O(n) time, O(n) space
+- **Example**: Valid Parentheses
+
+### 19. Strings – Generate Parentheses (Backtracking)
+- **When to use**: Generating all valid combinations of n pairs of parentheses
+- **Key Insights**:
+  - Recursively add '(' if open count < n
+  - Recursively add ')' if close count < open count
+  - Base case: when open == close == n, add to result
+  - Generates only valid combinations by construction
+- **Time Complexity**: O(4^n / sqrt(n)) - Catalan number approximation
+- **Space Complexity**: O(n) for recursion stack + O(4^n / sqrt(n)) for result
+- **Example**: Generate Parentheses
+
 ## Sliding Window + Hash Map
 
 ### Longest Substring Without Repeating Characters
