@@ -38,13 +38,9 @@ NeetCode/Blind 75 style DSA practice in Python with tests.
 ```
 dsa-practice/
 ├── arrays/               # Array manipulation problems
-│   ├── basics/           # Warm-up problems (fundamental operations, not counted in progress)
-│   └── *.py              # Interview-level array problems (counted in progress)
 ├── strings/              # String manipulation problems
 └── tests/                # Test cases for all problems
 ```
-
-> **Note:** Problems in `arrays/basics/` are warm-up exercises and are not counted in the progress tracking. Only problems in the root of `arrays/` are considered interview-level and contribute to the progress metrics.
 
 ## Current Focus
 
