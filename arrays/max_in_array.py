@@ -8,7 +8,7 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 """
 
-from typing import List, Optional
+from typing import List
 
 def find_max(arr: List[int]) -> int:
     """
