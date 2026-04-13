@@ -14,7 +14,6 @@ Time Complexity: O(n + m) where n is length of s, m is length of t
 Space Complexity: O(k) where k is number of unique characters in t
 """
 
-from typing import Dict, List
 from collections import Counter
 
 
