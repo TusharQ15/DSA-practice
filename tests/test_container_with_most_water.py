@@ -56,23 +56,23 @@ def test_container_with_most_water_decreasing_heights():
 
 def test_container_with_most_water_alternating_heights():
     """Test with alternating high and low heights."""
-    assert max_area([1, 8, 1, 8, 1, 8, 1, 8, 1]) == 32
-    assert max_area([2, 3, 2, 3, 2, 3]) == 9
-    assert max_area([1, 10, 1, 10]) == 12
+    assert max_area([1, 8, 1, 8, 1, 8, 1, 8, 1]) == 48
+    assert max_area([2, 3, 2, 3, 2, 3]) == 12
+    assert max_area([1, 10, 1, 10]) == 20
 
 
 def test_container_with_most_water_zero_heights():
     """Test with zero heights."""
     assert max_area([0, 0, 0, 0]) == 0
-    assert max_area([0, 5, 0, 5]) == 6
-    assert max_area([5, 0, 5, 0, 5]) == 12
+    assert max_area([0, 5, 0, 5]) == 10
+    assert max_area([5, 0, 5, 0, 5]) == 20
 
 
 def test_container_with_most_water_large_values():
     """Test with large height values."""
     assert max_area([1000, 1, 1000]) == 2000
-    assert max_area([100, 200, 300, 400, 500]) == 400
-    assert max_area([500, 400, 300, 200, 100]) == 400
+    assert max_area([100, 200, 300, 400, 500]) == 600
+    assert max_area([500, 400, 300, 200, 100]) == 600
 
 
 def test_container_with_most_water_specific_cases():
@@ -84,6 +84,6 @@ def test_container_with_most_water_specific_cases():
 
 def test_container_with_most_water_symmetric():
     """Test with symmetric patterns."""
-    assert max_area([1, 2, 3, 2, 1]) == 6
-    assert max_area([1, 3, 5, 3, 1]) == 8
-    assert max_area([2, 4, 6, 4, 2]) == 12
+    assert max_area([1, 2, 3, 2, 1]) == 4
+    assert max_area([1, 3, 5, 3, 1]) == 6
+    assert max_area([2, 4, 6, 4, 2]) == 8
